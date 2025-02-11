@@ -4,9 +4,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
-   <h1>Hello Guys</h1>
+	<h2>Login</h2>
+	<br>
+	
+	 <form action="#" method="post">
+        <label for="loginEmail">Email</label>
+        <input type="email" id="loginEmail" name="email" required>
+        
+        <br><br>
+
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" required>
+        
+        <br><br>
+
+        <button type="submit">Login</button>
+        
+        <a href = "forgotpassword">Forgot Password?</a>
+    </form>
+    <br><br>
+	<a href="signup">Signup</a>
+	
 </body>
 </html>
