@@ -10,7 +10,7 @@
 	<h2>Login</h2>
 	<br>
 	
-	 <form action="#" method="post">
+	 <form action="validatedata" method="post">
         <label for="loginEmail">Email</label>
         <input type="email" id="loginEmail" name="email" required>
         

@@ -7,7 +7,7 @@
 <title>New Guest</title>
 </head>
 <body>
-<h2>New Guest</h2>
+	<h2>New Guest</h2>
 	<form action="saveguest" method="post">
 		Full Name : <input type="text" name="fullName"/> <br><Br> 
 		ContactNum: <input type="text" name="contactNum"/> <br><br> 
@@ -22,5 +22,6 @@
 	
 	
 	</form>
+
 </body>
 </html>
