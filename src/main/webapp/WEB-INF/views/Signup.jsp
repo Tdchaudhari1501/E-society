@@ -37,27 +37,18 @@
         <input type="password" id="confirmPassword" name="confirmPassword" required>
         
         <br><br>
-
-        <label for="gender">Gender</label>
-        <select id="gender" name="gender" required>
-            <option value="">Select</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-        </select>
-        
-        <br><br>
-
-        <label for="dateOfBirth">Date of Birth</label>
-        <input type="date" id="dateOfBirth" name="dateOfBirth" required>
-        
-        <br><br>
+      
 
         <label for="contactNum">Contact Number</label>
         <input type="tel" id="contactNum" name="contactNum" required>
         
         <br><br>
 
+		<label for="profilePhoto">Contact Number</label>
+        <input type="file" id="profilePhoto" name="profilePhoto" required>
+        
+        <br><br>
+		
         <button type="submit">Submit</button>
     </form>
  	
