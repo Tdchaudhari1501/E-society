@@ -9,7 +9,6 @@
 </head>
 <body>
            <table border="1">
-                   
                 <tr>  
                     <th>Parking Code</th>
 	                <th> Vehical No</th>
