@@ -1,6 +1,7 @@
 package com.esociety.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,29 @@ public class VehicleController {
 	List<VehicleEntity> listVehical	=repoVehicle.findAll();
 		m.addAttribute("listVehical", listVehical);
 		return "ListVehicle";
+	}
+	@GetMapping("viewvehicle")
+	public String viewVehicle(Integer vehicleId, Model model) {
+		// ?
+		System.out.println("id ===> " + vehicleId);
+		Optional<VehicleEntity> op = repoVehicle.findById(vehicleId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			VehicleEntity vehicle = op.get();
+			// send data to jsp ->
+			model.addAttribute("vehicle", vehicle);
+
+		}
+
+		return "ViewVehicle";
+	}
+	
+	@GetMapping("deletevehicle")
+	public String deleteVehicle(Integer vehicleId) {
+		repoVehicle.deleteById(vehicleId);//delete from members where memberID = :memberId
+		return "redirect:/listvehicle";
 	}
 	
 }

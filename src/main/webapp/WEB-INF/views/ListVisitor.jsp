@@ -18,6 +18,7 @@
 	                <th>Profile Photo</th>
 	                <th>Entry Time</th>
 	                <th>Exit Time</th>
+	                <th>ACtion </th>
 	                
 	           </tr>
 	          <c:forEach var="vl" items="${listVisitor}" >
@@ -29,6 +30,8 @@
 	                  <td>${vl.profilePhoto}</td>
 	                  <td>${vl.entryTime}</td>
 	                  <td>${vl.exitTime}</td>
+	                  <td><a href="viewvisitor?visitorId=${vl.visitorId}">View</a> | <a href="deletevisitor?visitorId=${vl.visitorId}">Delete</a> | Edit </td>
+	                  
 	             </tr> 
 	             
 	          

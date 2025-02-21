@@ -14,12 +14,14 @@
                     <th>Member Name</th>
 	                <th> Age</th>
 	                <th> Profile Photo</th>
+	                <th>Action</th>
 	           </tr>
-	          <c:forEach var="vl" items="${listMember}" >
+	          <c:forEach var="m" items="${listMember}" >
 	             <tr>
-	                <td>${ vl.membername}</td>
-	                 <td>${vl.age}</td>
-	                  <td>${vl.profilePhoto}</td>
+	                <td>${ m.membername}</td>
+	                 <td>${m.age}</td>
+	                  <td>${m.profilePhoto}</td>
+	                  <td><a href="viewmember?memberId=${m.memberId}">View</a> | <a href="deletemember?memberId=${m.memberId}">Delete</a> | Edit </td>
 	             </tr> 
 	             
 	          

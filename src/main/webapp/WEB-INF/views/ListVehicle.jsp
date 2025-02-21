@@ -13,12 +13,15 @@
                     <th>Parking Code</th>
 	                <th> Vehical No</th>
 	                <th> Vehical Type</th>
+	                  <th>Action</th>
 	           </tr>
-	          <c:forEach var="vl" items="${listVehical}" >
+	          <c:forEach var="v" items="${listVehical}" >
 	             <tr>
-	                <td>${ vl.parkingCode}</td>
-	                 <td>${vl.vehicleNo}</td>
-	                  <td>${vl.vehicleType}</td>
+	                <td>${ v.parkingCode}</td>
+	                 <td>${v.vehicleNo}</td>
+	                  <td>${v.vehicleType}</td>
+	                  <td><a href="viewvehicle?vehicleId=${v.vehicleId}">View</a> | <a href="deletevehicle?vehicleId=${v.vehicleId}">Delete</a> | Edit </td>
+	                  
 	             </tr> 
 	             
 	          

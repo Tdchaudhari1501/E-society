@@ -1,6 +1,7 @@
 package com.esociety.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -35,5 +36,28 @@ public class SecurityController {
 	List<SecurityEntity> listSecurity=repoSecurity.findAll();
 		m.addAttribute("listSecurity", listSecurity);
 		return "ListSecurity";
+	}
+	@GetMapping("viewsecurity")
+	public String viewSecurity(Integer securityId, Model model) {
+		// ?
+		System.out.println("id ===> " + securityId);
+		Optional<SecurityEntity> op = repoSecurity.findById(securityId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			SecurityEntity security = op.get();
+			// send data to jsp ->
+			model.addAttribute("security", security);
+
+		}
+
+		return "ViewSecurity";
+	}
+	
+	@GetMapping("deletesecurity")
+	public String deleteSecurity(Integer securityId) {
+		repoSecurity.deleteById(securityId);//delete from members where memberID = :memberId
+		return "redirect:/listsecurity";
 	}
 }

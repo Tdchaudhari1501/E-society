@@ -14,12 +14,15 @@
                     <th>Name</th>
 	                <th>Contact Number</th>
 	                <th> Schedule</th>
+	                <th>ACtion </th>
 	           </tr>
-	          <c:forEach var="vl" items="${listSecurity}" >
+	          <c:forEach var="s" items="${listSecurity}" >
 	             <tr>
-	                <td>${ vl.name}</td>
-	                 <td>${vl.contactNum}</td>
-	                  <td>${vl.schedule}</td>
+	                <td>${ s.name}</td>
+	                 <td>${s.contactNum}</td>
+	                  <td>${s.schedule}</td>
+	                  <td><a href="viewsecurity?securityId=${s.securityId}">View</a> | <a href="deletesecurity?securityId=${s.securityId}">Delete</a> | Edit </td>
+	                  
 	             </tr> 
 	             
 	          
