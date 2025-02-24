@@ -13,6 +13,8 @@ import com.esociety.entity.UserEntity;
 import com.esociety.repository.UserRepository;
 import com.esociety.service.MailService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class SessionController {
 	
@@ -51,7 +53,7 @@ public class SessionController {
 	}
 	
 	@PostMapping("authenticate")
-	public String authenticate(String email, String password,Model model) {// sakira@yopmail.com sakira
+	public String authenticate(String email, String password,Model model,HttpSession session) {// sakira@yopmail.com sakira
 		System.out.println(email);
 		System.out.println(password);
 
@@ -62,13 +64,34 @@ public class SessionController {
 			// true
 			// email
 			UserEntity dbUser = op.get();
-			if (encoder.matches(password, dbUser.getPassword())) {
-				return "redirect:/home";
-			}
+//			if (encoder.matches(password, dbUser.getPassword())) {
+//				return "redirect:/home";
+//			}
+			boolean ans = encoder.matches(password, dbUser.getPassword());
+
+			if (ans == true) {
+				session.setAttribute("user", dbUser); // session -> user set
+				if (dbUser.getRole().equals("ADMIN")) {
+
+					return "redirect:/admindashboard";
+				} else if (dbUser.getRole().equals("USER")) {
+
+					return "redirect:/home";
+				} else {
+					model.addAttribute("error", "Please contact Admin with Error Code #0991");
+					return "Login";
+				}
+		    }
 		}
 		model.addAttribute("error","Invalid Credentials");
 		return "Login";
 	}
+		
+		@GetMapping("logout")
+		public String logout(HttpSession session) {
+			session.invalidate();
+			return "redirect:/login";// login url
+		}
 	
 	@GetMapping("forgotpassword")
 	public String forgotPassword() {
