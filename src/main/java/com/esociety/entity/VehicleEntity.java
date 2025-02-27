@@ -13,7 +13,7 @@ public class VehicleEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer vehicleId;
-	private Integer userId;
+	private Integer userId; //fk
 	private String parkingCode;
 	private String vehicleNo;
 	private String vehicleType;

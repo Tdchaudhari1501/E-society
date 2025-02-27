@@ -15,8 +15,8 @@ public class MemberEntity {
  private Integer memberId;
  private String membername;
  private Integer age;
- private Integer userId;
- private Integer houseId;
+ private Integer userId; //fk
+ private Integer houseId;//fk
  private String profilePhoto;
 public Integer getMemberId() {
 	return memberId;

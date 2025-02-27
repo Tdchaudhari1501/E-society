@@ -10,8 +10,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.esociety.entity.VisitorCategoryEntity;
 import com.esociety.entity.VisitorEntity;
 import com.esociety.repository.VisitorRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class VisitorController {
@@ -26,7 +29,10 @@ public class VisitorController {
 	}
 	
 	@PostMapping("savevisitor")
-	public String saveVisitor(VisitorEntity visitorEntity) {
+	public String saveVisitor(VisitorEntity visitorEntity,HttpSession session) {
+		VisitorCategoryEntity user = (VisitorCategoryEntity) session.getAttribute("user");
+		Integer visitorCategoryId = user.getVisitorCategoryId(); 
+		visitorEntity.setVisitorCategoryId(visitorCategoryId);
 		
 		visitorEntity.setDate(new Date());
 		

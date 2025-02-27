@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.esociety.entity.MemberEntity;
-
+import com.esociety.entity.UserEntity;
 import com.esociety.repository.MemberRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
@@ -24,7 +26,11 @@ public class MemberController {
 		
 	}
 	@PostMapping("savemember")
-	public String saveMember(MemberEntity memberEntity) {
+	public String saveMember(MemberEntity memberEntity, HttpSession session) {
+		UserEntity user = (UserEntity) session.getAttribute("user");
+		Integer userId = user.getUserId(); 
+		memberEntity.setUserId(userId);
+		
 		repoMember.save(memberEntity);
 		return "redirect:/listmember";
 	}

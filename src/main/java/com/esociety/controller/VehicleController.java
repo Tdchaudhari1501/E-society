@@ -9,8 +9,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.esociety.entity.UserEntity;
 import com.esociety.entity.VehicleEntity;
 import com.esociety.repository.VehicleRepository;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class VehicleController {
@@ -23,8 +26,11 @@ public class VehicleController {
 	}
 	
 	@PostMapping("savevehicle")
-	public String saveVehicle(VehicleEntity vehicleEntity) {
+	public String saveVehicle(VehicleEntity vehicleEntity,HttpSession session) {
+		UserEntity user = (UserEntity)session.getAttribute("user");//Object
+		Integer userId = user.getUserId();
 		
+		vehicleEntity.setUserId(userId);
 		repoVehicle.save(vehicleEntity);
 		return "redirect:/listvehicle";
 	}
