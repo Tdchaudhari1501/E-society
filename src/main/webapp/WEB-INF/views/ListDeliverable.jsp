@@ -8,7 +8,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | List VisitorCategory</title>
+<title>Admin | List Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -25,11 +25,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List VisitorCategory</h1>
+			<h1>List Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">List VisitorCategory</li>
+					<li class="breadcrumb-item active">List Deliverable</li>
 				</ol>
 			</nav>
 		</div>
@@ -48,7 +48,7 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										VisitorCategory<span>/all</span>
+										Deliverables<span>/all</span>
 									</h5>
 
 
@@ -56,19 +56,19 @@
 										<thead>
 											<tr>
 												<th>Title</th>
-								
+											
 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
-											<c:forEach items="${listVisitorCategory}" var="u">
+											<c:forEach items="${listDeliverable}" var="u">
 												<tr>
-													<td>${u.categoryName}</td>
+													<td>${u.isPickup}</td>
 													
 													
-													<td><a href="#">Edit</a> |<a href="deletevisitorcategory?visitorCategoryId=${u.visitorCategoryId}">Delete</a>|
-													 <a href="viewvisitorcategory?visitorCategoryId=${u.visitorCategoryId}">View</a>
+													<td><a href="#">Edit</a> |<a href="deletedeliverable?deliverablesId=${u.deliverablesId}">Delete</a>|
+													 <a href="viewdeliverable?deliverablesId=${u.deliverablesId}">View</a>
 													 </td>
 												</tr>
 											</c:forEach>

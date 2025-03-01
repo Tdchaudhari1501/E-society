@@ -18,7 +18,7 @@ public class DeliverablesEntity {
 	private Integer deliverablesId;
 	private Integer houseId;
 	private Date date;
-	private Integer isPickup;
+	private String isPickup;
 	public Integer getDeliverablesId() {
 		return deliverablesId;
 	}
@@ -37,10 +37,10 @@ public class DeliverablesEntity {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public Integer getIsPickup() {
+	public String getIsPickup() {
 		return isPickup;
 	}
-	public void setIsPickup(Integer isPickup) {
+	public void setIsPickup(String isPickup) {
 		this.isPickup = isPickup;
 	}
 	

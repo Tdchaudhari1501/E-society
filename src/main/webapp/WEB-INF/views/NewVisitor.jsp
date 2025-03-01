@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,6 +23,20 @@
 		
 		<label for="visitorName">Visitor Name: </label>
 		<input type="text" id="visitorName" name="visitorName">
+		<br>
+		<br>
+		 <br> House: 
+		<select name="houseId">
+			
+		<option>Select House</option>
+			
+			<c:forEach items="${allHouse}" var="h">
+
+			   <option value="${ h.houseId}">${h.title }</option>
+			
+			</c:forEach>
+
+		</select> 
 		<br><br>
 		
 		<label for="mobileNo">Mobile No: </label>

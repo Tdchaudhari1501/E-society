@@ -1,25 +1,35 @@
 package com.esociety.controller;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.esociety.entity.DeliverablesEntity;
+import com.esociety.entity.HouseEntity;
+
 import com.esociety.repository.DeliverablesRepository;
+import com.esociety.repository.HouseRepository;
 
 @Controller
 public class DeliverablesController {
 	
 	@Autowired
 	DeliverablesRepository repoDeliverable;
-	
+	@Autowired
+	HouseRepository repoHouse;
 	
 	@GetMapping("newdeliverable")
-	public String newDeliverable() {
-		return "Deliverables";
+	public String newDeliverable(Model model) {
+		List<HouseEntity> allHouse = repoHouse.findAll();// all state	
+		model.addAttribute("allHouse",allHouse);
+		
+		return "NewDeliverable";
 	}
 	
 	@PostMapping("savedeliverable")
@@ -28,6 +38,36 @@ public class DeliverablesController {
 		deliverablesEntity.setDate(new Date());
 		repoDeliverable.save(deliverablesEntity);
 		
-		return "Deliverables";
+		return "redirect:/listDeliverable";
+	}
+	@GetMapping("listDeliverable")
+	public String listDeliverable(Model m) {
+	List<DeliverablesEntity> listDeliverable=repoDeliverable.findAll();
+		m.addAttribute("listDeliverable", listDeliverable);
+		return "ListDeliverable";
+	}
+	
+	@GetMapping("viewdeliverable")
+	public String viewdeliverable(Integer deliverablesId, Model model) {
+		// ?
+		System.out.println("id ===> " + deliverablesId);
+		Optional<DeliverablesEntity> op = repoDeliverable.findById(deliverablesId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+		DeliverablesEntity deliverable = op.get();
+			// send data to jsp ->
+			model.addAttribute("deliverable", deliverable);
+
+		}
+
+		return "ViewDeliverable";
+	}
+	
+	@GetMapping("deletedeliverable")
+	public String deletedeliverable(Integer deliverablesId) {
+		repoDeliverable.deleteById(deliverablesId);//delete from members where memberID = :memberId
+		return "redirect:/listDeliverable";
 	}
 }

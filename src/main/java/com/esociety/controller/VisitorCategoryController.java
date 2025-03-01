@@ -1,6 +1,7 @@
 package com.esociety.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -34,5 +35,29 @@ public class VisitorCategoryController {
 	List<VisitorCategoryEntity> listVisitorCategory=repoVisitorCategory.findAll();
 		m.addAttribute("listVisitorCategory", listVisitorCategory);
 		return "ListVisitorCategory";
+	}
+	
+	@GetMapping("viewvisitorcategory")
+	public String viewVisitorCategory(Integer visitorCategoryId, Model model) {
+		// ?
+		System.out.println("id ===> " + visitorCategoryId);
+		Optional<VisitorCategoryEntity> op = repoVisitorCategory.findById(visitorCategoryId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			VisitorCategoryEntity visitorcategory = op.get();
+			// send data to jsp ->
+			model.addAttribute("visitorcategory", visitorcategory);
+
+		}
+
+		return "ViewVisitorCategory";
+	}
+	
+	@GetMapping("deletevisitorcategory")
+	public String deletehouse(Integer visitorCategoryId) {
+		repoVisitorCategory.deleteById(visitorCategoryId);//delete from members where memberID = :memberId
+		return "redirect:/listVisitorCategory";
 	}
 }

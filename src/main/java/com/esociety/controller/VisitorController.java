@@ -10,11 +10,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.esociety.entity.VisitorCategoryEntity;
+import com.esociety.entity.HouseEntity;
+
 import com.esociety.entity.VisitorEntity;
+import com.esociety.repository.HouseRepository;
 import com.esociety.repository.VisitorRepository;
 
-import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class VisitorController {
@@ -22,17 +23,21 @@ public class VisitorController {
 	@Autowired
 	VisitorRepository repoVisitor;
 	
+	@Autowired
+	HouseRepository repoHouse;
+	
+	
 	@GetMapping("newvisitor")
-	public String newVisitor() {
+	public String newVisitor(Model model) {
+		List<HouseEntity> allHouse = repoHouse.findAll();// all state	
+		model.addAttribute("allHouse",allHouse);
+		
 		return "NewVisitor";
 		
 	}
 	
 	@PostMapping("savevisitor")
-	public String saveVisitor(VisitorEntity visitorEntity,HttpSession session) {
-		VisitorCategoryEntity user = (VisitorCategoryEntity) session.getAttribute("user");
-		Integer visitorCategoryId = user.getVisitorCategoryId(); 
-		visitorEntity.setVisitorCategoryId(visitorCategoryId);
+	public String saveVisitor(VisitorEntity visitorEntity) {
 		
 		visitorEntity.setDate(new Date());
 		

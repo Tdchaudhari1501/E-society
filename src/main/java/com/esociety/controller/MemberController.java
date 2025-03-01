@@ -9,8 +9,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.esociety.entity.HouseEntity;
 import com.esociety.entity.MemberEntity;
 import com.esociety.entity.UserEntity;
+import com.esociety.repository.HouseRepository;
 import com.esociety.repository.MemberRepository;
 
 import jakarta.servlet.http.HttpSession;
@@ -19,9 +21,15 @@ import jakarta.servlet.http.HttpSession;
 public class MemberController {
 	@Autowired
 	MemberRepository repoMember;
+	
+	@Autowired
+	HouseRepository repoHouse;
      
 	@GetMapping("newmember")
-	public String newMember() {
+	public String newMember(Model model) {
+		
+		List<HouseEntity> allHouse = repoHouse.findAll();// all state	
+		model.addAttribute("allHouse",allHouse);
 		return "NewMember";
 		
 	}

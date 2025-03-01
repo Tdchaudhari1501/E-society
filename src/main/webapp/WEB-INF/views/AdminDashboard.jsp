@@ -213,4 +213,4 @@
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 </body>
-</html
+</html>
