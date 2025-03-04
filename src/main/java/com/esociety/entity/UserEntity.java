@@ -21,7 +21,7 @@ public class UserEntity {
 	private String password;
 	private String contactNum;
 	private String profilePhoto;
-	
+	private String  otp;
 	
 	private String role;// member,security,chairman,admin
 
@@ -104,6 +104,19 @@ public class UserEntity {
 	public void setRole(String role) {
 		this.role = role;
 	}
+
+
+	public String getOtp() {
+		return otp;
+	}
+
+
+	public void setOtp(String otp) {
+		this.otp = otp;
+	}
+
+    
+	
 
 	
 

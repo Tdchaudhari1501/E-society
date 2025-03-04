@@ -29,7 +29,7 @@ public class SessionController {
 		return "Signup";
 	}
 	
-	@GetMapping("login")  // url
+	@GetMapping("login")  // 
 	public String login() {  //method
 		return "Login";    // return jsp name
 	}
@@ -90,19 +90,57 @@ public class SessionController {
 		@GetMapping("logout")
 		public String logout(HttpSession session) {
 			session.invalidate();
-			return "redirect:/login";// login url
+			return "redirect:/login";// login URL
 		}
 	
 	@GetMapping("forgotpassword")
-	public String forgotPassword() {
-		return "forgot";//jsp
+	public String forgotpassword() {
+		return "forgot";
 	}
-	@PostMapping("sendOtp")
-	public String resetpassword() {
-		return "changepassword";
-	}
+	
+	@PostMapping("sendotp")
+	public String sendOtp(String email, Model model) {
+		// email valid
+		Optional<UserEntity> op = repoUser.findByEmail(email);
+		if (op.isEmpty()) {
+			// email invalid
+			model.addAttribute("error", "Email not found");
+			return "forgot";
+		} else {
+			// email valid
+			// send mail OTP
+			// opt generate
+			// send mail OTP
+			String otp = "";
+			otp = (int) (Math.random() * 1000000) + "";// 0.25875621458541
+
+			UserEntity user = op.get();
+			user.setOtp(otp);
+			repoUser.save(user);// update OTP for user
+			serviceMail.sendOtpForForgetPassword(email, user.getFirstName(), otp);
+			return "changepassword";
+		}
+		}
 	@PostMapping("updatepassword")
-	public String updatepassword() {
+	public String updatePassword(String email, String password, String otp, Model model) {
+		Optional<UserEntity> op = repoUser.findByEmail(email);
+		if (op.isEmpty()) {
+			model.addAttribute("error", "Invalid Data");
+			return "changepassword";
+		} else {
+			UserEntity user = op.get();
+			if (user.getOtp().equals(otp)) {
+				String encPwd = encoder.encode(password);
+				user.setPassword(encPwd);
+				user.setOtp("");
+				repoUser.save(user);// update
+			} else {
+
+				model.addAttribute("error", "Invalid Data");
+				return "changepassword";
+			}
+		}
+		model.addAttribute("msg","Password updated");
 		return "Login";
 	}
 }
