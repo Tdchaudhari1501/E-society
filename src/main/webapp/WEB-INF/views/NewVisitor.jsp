@@ -39,6 +39,21 @@
 		</select> 
 		<br><br>
 		
+		<br>
+		 <br> VisitorCategory: 
+		<select name="visitorCategoryId">
+			
+		<option>Select VisitorCategory</option>
+			
+			<c:forEach items="${allvisitorcate}" var="h">
+
+			   <option value="${ h.visitorCategoryId}">${h.categoryName }</option>
+			
+			</c:forEach>
+
+		</select> 
+		<br><br>
+		
 		<label for="mobileNo">Mobile No: </label>
 		<input type="text" id="mobileNo" name="mobileNo">
 		<br><br>

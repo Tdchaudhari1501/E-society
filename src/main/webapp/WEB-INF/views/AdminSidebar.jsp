@@ -27,8 +27,7 @@
 
 
 		<li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i
-				class="bi bi-gem"></i><span>Vehicles</span><i
+			data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#"> <i class="bi bi-car-front-fill"></i><span>Vehicles</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
 			<ul id="icons-nav" class="nav-content collapse "
@@ -44,7 +43,7 @@
 		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#1" data-bs-toggle="collapse" href="#">
-				<i class="bi bi-person"></i><span>Members</span><i
+				<i class="bi bi-people-fill"></i><span>Members</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
 			<ul id="1" class="nav-content collapse "
@@ -76,7 +75,7 @@
 		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#4" data-bs-toggle="collapse" href="#">
-				<i class="bi bi-person"></i><span>Security</span><i
+				<i class="bi bi-shield-fill"></i><span>Security</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
 			<ul id="4" class="nav-content collapse "
@@ -92,7 +91,7 @@
 		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#3" data-bs-toggle="collapse" href="#">
-				<i class="bi bi-building-fill"></i><span>House</span><i
+				<i class="bi bi-house-fill"></i><span>House</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
 			<ul id="3" class="nav-content collapse "
@@ -124,7 +123,7 @@
 		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#6" data-bs-toggle="collapse" href="#">
-				<i class="bi bi-person"></i><span>Deliverable</span><i
+				<i class="bi bi-truck-flatbed"></i><span>Deliverable</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
 			<ul id="6" class="nav-content collapse "

@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.esociety.entity.HouseEntity;
-
+import com.esociety.entity.VisitorCategoryEntity;
 import com.esociety.entity.VisitorEntity;
 import com.esociety.repository.HouseRepository;
+import com.esociety.repository.VisitorCategoryRepository;
 import com.esociety.repository.VisitorRepository;
 
 
@@ -26,11 +27,17 @@ public class VisitorController {
 	@Autowired
 	HouseRepository repoHouse;
 	
+	@Autowired
+	VisitorCategoryRepository repoVisitorCate;
 	
 	@GetMapping("newvisitor")
 	public String newVisitor(Model model) {
 		List<HouseEntity> allHouse = repoHouse.findAll();// all state	
 		model.addAttribute("allHouse",allHouse);
+		
+		List<VisitorCategoryEntity> allvisitorcate = repoVisitorCate.findAll();// all state	
+		model.addAttribute("allvisitorcate",allvisitorcate);
+		
 		
 		return "NewVisitor";
 		
