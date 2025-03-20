@@ -69,7 +69,7 @@
 													<td>${u.vehicleNo}</td>
 													<td>${u.vehicleType}</td>
 												
-													<td><a href="#">Edit</a> |<a href="deletevehicle?vehicleId=${u.vehicleId}">Delete</a>|
+													<td><a href="editvehicle?vehicleId=${u.vehicleId}">Edit</a> |<a href="deletevehicle?vehicleId=${u.vehicleId}">Delete</a>|
 													 <a href="viewvehicle?vehicleId=${u.vehicleId}">View</a>
 													 </td>
 												</tr>

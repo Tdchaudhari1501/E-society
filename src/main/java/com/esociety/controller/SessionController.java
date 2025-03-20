@@ -1,5 +1,7 @@
 package com.esociety.controller;
 
+import java.io.IOException;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.esociety.entity.UserEntity;
 import com.esociety.repository.UserRepository;
 import com.esociety.service.MailService;
@@ -17,43 +22,64 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class SessionController {
-	
+
 	@Autowired
 	UserRepository repoUser;
 	@Autowired
 	PasswordEncoder encoder;
 	@Autowired
 	MailService serviceMail;
-	@GetMapping(value = {"/", "signup"})
+	@Autowired
+	Cloudinary cloudinary;
+
+	@GetMapping(value = { "/", "signup" })
 	public String signup() {
 		return "Signup";
 	}
-	
-	@GetMapping("login")  // 
-	public String login() {  //method
-		return "Login";    // return jsp name
+
+	@GetMapping("login") //
+	public String login() { // method
+		return "Login"; // return jsp name
 	}
-	
-	
+
 	@PostMapping("saveuser")
-	public String saveUser(UserEntity userEntity) {
+	public String saveUser(UserEntity userEntity, MultipartFile profilePic, Model model) {
 //		System.out.println(userEntity.getFirstName());
 //		System.out.println(userEntity.getLastName());
 //		System.out.println(userEntity.getEmail());
 //		System.out.println(userEntity.getPassword());
 //		System.out.println(userEntity. getContactNum());
+		if (profilePic.getOriginalFilename().endsWith(".jpg") || profilePic.getOriginalFilename().endsWith(".png")
+				|| profilePic.getOriginalFilename().endsWith(".jpeg")) {
+
+			try {
+
+				Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+				userEntity.setProfilePicPath(result.get("url").toString());
+
+			} catch (IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+
+		} else {
+
+			model.addAttribute("error", "Not valid type of Profile Pic");
+			return "Signup";
+		}
 		String encPassword = encoder.encode(userEntity.getPassword());
-     	userEntity.setPassword(encPassword);
+		userEntity.setPassword(encPassword);
 		userEntity.setRole("USER");
-		
-		repoUser.save(userEntity);  // insert query
+
+		repoUser.save(userEntity); // insert query
 		serviceMail.sendWelcomeMail(userEntity.getEmail(), userEntity.getFirstName());
-		
-		return "Login";//jsp
+
+		return "Login";// jsp
 	}
-	
+
 	@PostMapping("authenticate")
-	public String authenticate(String email, String password,Model model,HttpSession session) {// sakira@yopmail.com sakira
+	public String authenticate(String email, String password, Model model, HttpSession session) {// sakira@yopmail.com
+																									// sakira
 		System.out.println(email);
 		System.out.println(password);
 
@@ -81,23 +107,23 @@ public class SessionController {
 					model.addAttribute("error", "Please contact Admin with Error Code #0991");
 					return "Login";
 				}
-		    }
+			}
 		}
-		model.addAttribute("error","Invalid Credentials");
+		model.addAttribute("error", "Invalid Credentials");
 		return "Login";
 	}
-		
-		@GetMapping("logout")
-		public String logout(HttpSession session) {
-			session.invalidate();
-			return "redirect:/login";// login URL
-		}
-	
+
+	@GetMapping("logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/login";// login URL
+	}
+
 	@GetMapping("forgotpassword")
 	public String forgotpassword() {
 		return "forgot";
 	}
-	
+
 	@PostMapping("sendotp")
 	public String sendOtp(String email, Model model) {
 		// email valid
@@ -120,7 +146,8 @@ public class SessionController {
 			serviceMail.sendOtpForForgetPassword(email, user.getFirstName(), otp);
 			return "changepassword";
 		}
-		}
+	}
+
 	@PostMapping("updatepassword")
 	public String updatePassword(String email, String password, String otp, Model model) {
 		Optional<UserEntity> op = repoUser.findByEmail(email);
@@ -140,7 +167,7 @@ public class SessionController {
 				return "changepassword";
 			}
 		}
-		model.addAttribute("msg","Password updated");
+		model.addAttribute("msg", "Password updated");
 		return "Login";
 	}
 }

@@ -59,6 +59,39 @@ public class VehicleController {
 		return "ViewVehicle";
 	}
 	
+	@GetMapping("editvehicle")
+ 	public String editVehicle(Integer vehicleId,Model model) {
+ 		Optional<VehicleEntity> op = repoVehicle.findById(vehicleId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listvehicle";
+ 		} else {
+ 			model.addAttribute("vehicle",op.get());
+ 			return "EditVehicle";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updatevehicle")
+ 	public String updateVehicle(VehicleEntity vehicleEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(vehicleEntity.getVehicleId());//id? db? 
+ 
+ 		Optional<VehicleEntity> op = repoVehicle.findById(vehicleEntity.getVehicleId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			VehicleEntity dbVehicle = op.get(); //pcode vhreg type id userId 
+ 			dbVehicle.setParkingCode(vehicleEntity.getParkingCode());//code 
+ 			dbVehicle.setVehicleType(vehicleEntity.getVehicleType());//type 
+ 			dbVehicle.setVehicleNo(vehicleEntity.getVehicleNo());//type 
+
+ 			//
+ 			repoVehicle.save(dbVehicle);
+ 		}
+ 		return "redirect:/listvehicle";
+ 	}
+ 	
+	
 	@GetMapping("deletevehicle")
 	public String deleteVehicle(Integer vehicleId) {
 		repoVehicle.deleteById(vehicleId);//delete from members where memberID = :memberId

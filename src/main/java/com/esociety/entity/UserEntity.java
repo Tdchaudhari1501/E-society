@@ -18,6 +18,7 @@ public class UserEntity {
 	private String lastName;
 	@Column(unique = true)
 	private String email;
+	private String profilePicPath;
 	private String password;
 	private String contactNum;
 	private String profilePhoto;
@@ -113,6 +114,16 @@ public class UserEntity {
 
 	public void setOtp(String otp) {
 		this.otp = otp;
+	}
+
+
+	public String getProfilePicPath() {
+		return profilePicPath;
+	}
+
+
+	public void setProfilePicPath(String profilePicPath) {
+		this.profilePicPath = profilePicPath;
 	}
 
     

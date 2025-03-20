@@ -67,7 +67,7 @@
                     <p class="text-center small">Enter your personal details to create account</p>
                   </div>
 
-                  <form class="row g-3 needs-validation" action="saveuser" method="post" novalidate>
+                  <form class="row g-3 needs-validation" action="saveuser" method="post" enctype="multipart/form-data" novalidate>
                     <div class="col-12">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="firstName" required>
@@ -104,10 +104,10 @@
                     </div>
                      <div class="col-12">
                       <label for="profilePhoto" class="form-label">Profile Photo</label>
-                      <input type="file" id="profilePhoto" name="profilePhoto" class="form-control"  required>
+                      <input type="file" id="profilePic" name="profilePic" class="form-control"  required>
                       <div class="invalid-feedback">Please enter your Profile Photo!</div>
                     </div>
-
+                    
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
@@ -122,7 +122,7 @@
                       <p class="small mb-0">Already have an account? <a href="login">Log in</a></p>
                     </div>
                   </form>
-
+                     ${error}
                 </div>
               </div>
 
