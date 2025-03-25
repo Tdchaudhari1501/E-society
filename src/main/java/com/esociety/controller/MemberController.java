@@ -49,6 +49,15 @@ public class MemberController {
 		m.addAttribute("listMember", listMember);
 		return "ListMember";
 	}
+	
+	@GetMapping("mymembers")
+ 	public String myMembers(HttpSession session, Model model) {
+ 		UserEntity user = (UserEntity) session.getAttribute("user");
+ 		List<Object[]> allMember = repoMember.getAll(user.getUserId());
+ 		model.addAttribute("allMember",allMember);
+ 		return "MyMembers";
+ 	}
+	
 	@GetMapping("viewmember")
 	public String viewMember(Integer memberId, Model model) {
 		// ?

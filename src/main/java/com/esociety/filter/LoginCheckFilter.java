@@ -15,7 +15,7 @@ import jakarta.servlet.ServletResponse;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
-@Component
+//@Component
 public class LoginCheckFilter implements Filter {
 
 	ArrayList<String> publicURL = new ArrayList<>();
