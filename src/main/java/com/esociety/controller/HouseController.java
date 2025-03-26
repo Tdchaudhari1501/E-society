@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.esociety.entity.HouseEntity;
-
 import com.esociety.repository.HouseRepository;
 
 @Controller
@@ -53,6 +52,37 @@ public class HouseController {
 
 		return "ViewHouse";
 	}
+	
+	@GetMapping("edithouse")
+ 	public String editHouse(Integer houseId,Model model) {
+ 		Optional<HouseEntity> op = repoHouse.findById(houseId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listhouse";
+ 		} else {
+ 			model.addAttribute("house",op.get());
+ 			return "EditHouse";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updatehouse")
+ 	public String updateHouse(HouseEntity houseEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(houseEntity.getHouseId());//id? db? 
+ 
+ 		Optional<HouseEntity> op = repoHouse.findById(houseEntity.getHouseId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			HouseEntity dbHouse = op.get(); //pcode vhreg type id userId 
+ 			dbHouse.setTitle(houseEntity.getTitle());//code 
+ 			
+
+ 			//
+ 			repoHouse.save(dbHouse);
+ 		}
+ 		return "redirect:/listHouse";
+ 	}
 	
 	@GetMapping("deletehouse")
 	public String deletehouse(Integer houseId) {

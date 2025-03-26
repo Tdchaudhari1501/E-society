@@ -67,7 +67,7 @@
 													<td>${u.isPickup}</td>
 													
 													
-													<td><a href="#">Edit</a> |<a href="deletedeliverable?deliverablesId=${u.deliverablesId}">Delete</a>|
+													<td><a href="editdeliverable?deliverablesId=${u.deliverablesId}">Edit</a> |<a href="deletedeliverable?deliverablesId=${u.deliverablesId}">Delete</a>|
 													 <a href="viewdeliverable?deliverablesId=${u.deliverablesId}">View</a>
 													 </td>
 												</tr>

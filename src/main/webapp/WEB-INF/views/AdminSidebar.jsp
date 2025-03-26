@@ -64,7 +64,7 @@
 		</a>
 			<ul id="5" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newvisitor"> <i class="bi bi-circle"></i><span>Add
 							Visitor</span>
 				</a></li>
 				<li><a href="listvisitor"> <i class="bi bi-circle"></i><span>List
@@ -80,7 +80,7 @@
 		</a>
 			<ul id="4" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newsecurity"> <i class="bi bi-circle"></i><span>Add
 							Security</span>
 				</a></li>
 				<li><a href="listsecurity"> <i class="bi bi-circle"></i><span>List
@@ -96,7 +96,7 @@
 		</a>
 			<ul id="3" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newhouse"> <i class="bi bi-circle"></i><span>Add
 							House</span>
 				</a></li>
 				<li><a href="listHouse"> <i class="bi bi-circle"></i><span>List
@@ -112,7 +112,7 @@
 		</a>
 			<ul id="2" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newvisitorcategory"> <i class="bi bi-circle"></i><span>Add
 							Visitor Category</span>
 				</a></li>
 				<li><a href="listVisitorCategory"> <i class="bi bi-circle"></i><span>List
@@ -128,7 +128,7 @@
 		</a>
 			<ul id="6" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newdeliverable"> <i class="bi bi-circle"></i><span>Add
 							Deliverable</span>
 				</a></li>
 				<li><a href="listDeliverable"> <i class="bi bi-circle"></i><span>List

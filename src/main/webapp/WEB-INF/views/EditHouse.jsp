@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | Edit House</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +26,26 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>Edit House</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">Edit House</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="updatehouse" method="post">
+ 	    Title : <input type="text" name="title" value="${house.title}" /><br> <br>
+ 		
+ 			
+ 		<input type="hidden" name="houseId"  value="${house.houseId}"/>
+ 		
+ 		<input type="submit" value="Update House" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

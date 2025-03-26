@@ -69,7 +69,7 @@
 													<td>${u.contactNum}</td>
 													<td>${u.schedule}</td>
 													
-													<td><a href="#">Edit</a> |<a href="deletesecurity?securityId=${u.securityId}">Delete</a>|
+													<td><a href="editsecurity?securityId=${u.securityId}">Edit</a> |<a href="deletesecurity?securityId=${u.securityId}">Delete</a>|
 													 <a href="viewsecurity?securityId=${u.securityId}">View</a>
 													 </td>
 												</tr>

@@ -1,4 +1,5 @@
 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +10,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | New VisitorCategory</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +27,26 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>New VisitorCategory</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">New VisitorCategory</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="savevisitorcategory" method="post">
+		<label for="title">Title: </label>
+		<input type="text" id="categoryName" name="categoryName">
+		<br><br>
+		
+		<input type="submit" value="Save Title">
+	</form>
+			
+	
 		</section>
 
 	</main>

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import com.esociety.entity.SecurityEntity;
+import com.esociety.entity.VehicleEntity;
 import com.esociety.repository.SecurityRepository;
 
 @Controller
@@ -55,6 +56,37 @@ public class SecurityController {
 		return "ViewSecurity";
 	}
 	
+	@GetMapping("editsecurity")
+ 	public String editSecurity(Integer securityId,Model model) {
+ 		Optional<SecurityEntity> op = repoSecurity.findById(securityId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listsecurity";
+ 		} else {
+ 			model.addAttribute("security",op.get());
+ 			return "EditSecurity";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updatesecurity")
+ 	public String updateSecurity(SecurityEntity securityEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(securityEntity.getSecurityId());//id? db? 
+ 
+ 		Optional<SecurityEntity> op = repoSecurity.findById(securityEntity.getSecurityId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			SecurityEntity dbSecurity = op.get(); //pcode vhreg type id userId 
+ 			dbSecurity.setName(securityEntity.getName());//code 
+ 			dbSecurity.setContactNum(securityEntity.getContactNum());//type 
+ 			dbSecurity.setSchedule(securityEntity.getSchedule());//type 
+
+ 			//
+ 			repoSecurity.save(dbSecurity);
+ 		}
+ 		return "redirect:/listsecurity";
+ 	}
 	@GetMapping("deletesecurity")
 	public String deleteSecurity(Integer securityId) {
 		repoSecurity.deleteById(securityId);//delete from members where memberID = :memberId

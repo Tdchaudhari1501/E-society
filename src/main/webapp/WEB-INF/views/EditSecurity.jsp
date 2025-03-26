@@ -1,4 +1,6 @@
 
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +11,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | Edit Security</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +28,27 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>Edit Security</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">Edit Security</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="updatesecurity" method="post">
+ 		Name : <input type="text" name="name" value="${security.name}" /><br> <br>
+ 		ContactNo : <input type="text" name="contactNum" value="${security.contactNum}" /><br> <br>
+ 		Schedule: <input type="text" name="schedule" value="${security.schedule}" /><br> <br>
+ 			
+ 		<input type="hidden" name="securityId"  value="${security.securityId}"/>
+ 		
+ 		<input type="submit" value="Update Security" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

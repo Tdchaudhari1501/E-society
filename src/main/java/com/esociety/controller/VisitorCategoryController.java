@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.esociety.entity.HouseEntity;
 import com.esociety.entity.VisitorCategoryEntity;
 import com.esociety.repository.VisitorCategoryRepository;
 
@@ -20,7 +21,7 @@ public class VisitorCategoryController {
 	
 	@GetMapping("newvisitorcategory")
 	public String newVisitorCategory() {
-		return "VisitorCategory";
+		return "NewVisitorCategory";
 	}
 	
 	@PostMapping("savevisitorcategory")
@@ -54,7 +55,36 @@ public class VisitorCategoryController {
 
 		return "ViewVisitorCategory";
 	}
+	@GetMapping("editvisitorcategory")
+ 	public String editVisitorCategory(Integer visitorCategoryId,Model model) {
+ 		Optional<VisitorCategoryEntity> op = repoVisitorCategory.findById(visitorCategoryId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listVisitorCategory";
+ 		} else {
+ 			model.addAttribute("visitorcategory",op.get());
+ 			return "EditVisitorCategory";
+ 
+ 		}
+ 	}
 	
+	@PostMapping("updatevisitorcategory")
+ 	public String updateVisitorCategory(VisitorCategoryEntity visitorCategoryEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(visitorCategoryEntity.getVisitorCategoryId());//id? db? 
+ 
+ 		Optional<VisitorCategoryEntity> op = repoVisitorCategory.findById(visitorCategoryEntity.getVisitorCategoryId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			VisitorCategoryEntity dbVisitorCategory = op.get(); //pcode vhreg type id userId 
+ 			dbVisitorCategory.setCategoryName(visitorCategoryEntity.getCategoryName());//code 
+ 			
+
+ 			//
+ 			repoVisitorCategory.save(dbVisitorCategory);
+ 		}
+ 		return "redirect:/listVisitorCategory";
+ 	}
 	@GetMapping("deletevisitorcategory")
 	public String deletehouse(Integer visitorCategoryId) {
 		repoVisitorCategory.deleteById(visitorCategoryId);//delete from members where memberID = :memberId

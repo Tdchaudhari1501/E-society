@@ -31,6 +31,8 @@
 
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
+
+	<jsp:include page="AdminCss.jsp"></jsp:include>
 </head>
 <body>
 
@@ -63,9 +65,8 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Members<span>/all</span>
+										Members<span>/all/</span>
 									</h5>
-                      <div>  User: usr </div>
 
 									<table class="table datatable datatable-table table-hover"
 										id="myTable">
@@ -73,9 +74,7 @@
 											<tr>
 												<th>MemberName</th>
 												<th>Age</th>
-												<th>FirstName</th>
-												<th>LastName</th>
-
+												<th>Photo</th>
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -84,11 +83,9 @@
 
 											<c:forEach items="${allMember}" var="m">
 												<tr>
-
+													<td>${m[0]}</td>
 													<td>${m[1]}</td>
-													<td>${m[2]}</td>
-													<td>${m[3]}</td>
-													<td>${m[4]}</td>
+													<td><img alt="photo" src="${m[2]}" style="hight:50px; width: 50px;" > </td>
 
 
 													<td><a href="editmemember?memberId=${u.memberId}">Edit</a>
@@ -119,5 +116,11 @@
 		</section>
 	</main>
 	<!-- End of main -->
+	
+	<jsp:include page="UserFooter.jsp"></jsp:include>
+	
+	<jsp:include page="AdminJs.jsp"></jsp:include>
 </body>
+
+	
 </html>

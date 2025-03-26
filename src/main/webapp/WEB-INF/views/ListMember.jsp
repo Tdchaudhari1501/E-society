@@ -17,7 +17,8 @@
 
 
 </head>
-<body>
+<body> 
+
 	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
@@ -68,9 +69,10 @@
 												<tr>
 													<td>${u.membername}</td>
 													<td>${u.age}</td>
-													<td>${u.profilePhoto}</td>
 													
-													<td><a href="#">Edit</a> |<a href="deletemember?memberId=${u.memberId}">Delete</a>|
+													<td><img alt="photo" src="${u.profilePhoto}" style="hight:50px; width: 50px;" > </td>
+													
+													<td><a href="editmember?memberId=${u.memberId}">Edit</a> |<a href="deletemember?memberId=${u.memberId}">Delete</a>|
 													 <a href="viewmember?memberId=${u.memberId}">View</a>
 													 </td>
 												</tr>

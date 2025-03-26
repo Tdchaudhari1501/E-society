@@ -24,7 +24,7 @@ public class LoginCheckFilter implements Filter {
  		publicURL.add("/login");
  		publicURL.add("/signup");
  		publicURL.add("/saveuser");
- 		publicURL.add("/forgotpassword");
+  		publicURL.add("/forgotpassword");
  		publicURL.add("/sendotp");
  		publicURL.add("/authenticate");
  		publicURL.add("/logout");

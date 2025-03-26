@@ -1,4 +1,6 @@
 
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +11,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | Edit Visitor</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +28,31 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>Edit Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">Edit Visitor</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="updatevisitor" method="post">
+ 		Purpose : <input type="text" name="purpose" value="${visitor.purpose}" /><br> <br>
+ 		Allowed : <input type="text" name="allowed" value="${visitor.allowed}" /><br> <br>
+ 		VisitorName: <input type="text" name="visitorName" value="${visitor.visitorName}" /><br> <br>
+ 		Mobile No: <input type="text" name="mobileNo" value="${visitor.mobileNo}" /><br> <br>
+ 		EntryTime: <input type="text" name="entryTime" value="${visitor.entryTime}" /><br> <br>
+ 		ExitTime: <input type="text" name="exitTime" value="${visitor.exitTime}" /><br> <br>
+ 		
+ 			
+ 		<input type="hidden" name="visitorId"  value="${visitor.visitorId}"/>
+ 		
+ 		<input type="submit" value="Update Visitor" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

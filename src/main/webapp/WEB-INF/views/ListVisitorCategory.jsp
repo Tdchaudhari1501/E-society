@@ -67,7 +67,7 @@
 													<td>${u.categoryName}</td>
 													
 													
-													<td><a href="#">Edit</a> |<a href="deletevisitorcategory?visitorCategoryId=${u.visitorCategoryId}">Delete</a>|
+													<td><a href="editvisitorcategory?visitorCategoryId=${u.visitorCategoryId}">Edit</a> |<a href="deletevisitorcategory?visitorCategoryId=${u.visitorCategoryId}">Delete</a>|
 													 <a href="viewvisitorcategory?visitorCategoryId=${u.visitorCategoryId}">View</a>
 													 </td>
 												</tr>

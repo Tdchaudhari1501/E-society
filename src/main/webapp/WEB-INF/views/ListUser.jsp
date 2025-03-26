@@ -59,6 +59,8 @@
 												<th>LastName</th>
 												<th>Email</th>
 												<th>ContactNum</th>
+												<th>ProfilePhoto</th>
+												
 												<th>Action</th>
 											</tr>
 										</thead>
@@ -70,6 +72,7 @@
 													<td>${u.lastName}</td>
 													<td>${u.email}</td>
 													<td>${u.contactNum}</td>
+													<td>${u.profilePhoto}</td>
 													<td><a href="#">Edit</a> |<a href="deleteuser?userId=${u.userId}">Delete</a>|
 													 <a href="viewuser?userId=${u.userId}">View</a>
 													 </td>

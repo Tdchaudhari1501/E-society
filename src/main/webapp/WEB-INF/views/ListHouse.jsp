@@ -67,7 +67,7 @@
 													<td>${u.title}</td>
 													
 													
-													<td><a href="#">Edit</a> |<a href="deletehouse?houseId=${u.houseId}">Delete</a>|
+													<td><a href="edithouse?houseId=${u.houseId}">Edit</a> |<a href="deletehouse?houseId=${u.houseId}">Delete</a>|
 													 <a href="viewhouse?houseId=${u.houseId}">View</a>
 													 </td>
 												</tr>

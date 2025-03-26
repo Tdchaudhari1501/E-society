@@ -1,4 +1,6 @@
 
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +11,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | Edit Member</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +28,28 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>Edit Member</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">Edit Member</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="updatemember" method="post">
+ 		
+ 		MemberName: <input type="text" name="membername" value="${member.membername}" /><br> <br>
+ 		Age: <input type="text" name="age" value="${member.age}" /><br> <br>
+ 		
+ 			
+ 		<input type="hidden" name="memberId"  value="${member.memberId}"/>
+ 		
+ 		<input type="submit" value="Update Member" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

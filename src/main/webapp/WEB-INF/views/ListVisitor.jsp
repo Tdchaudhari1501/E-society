@@ -72,7 +72,7 @@
 													<td>${u.mobileNo}</td>
 													<td>${u.entryTime}</td>
 													<td>${u.exitTime}</td>
-													<td><a href="#">Edit</a> |<a href="deletevisitor?visitorId=${u.visitorId}">Delete</a>|
+													<td><a href="editvisitor?visitorId=${u.visitorId}">Edit</a> |<a href="deletevisitor?visitorId=${u.visitorId}">Delete</a>|
 													 <a href="viewvisitor?visitorId=${u.visitorId}">View</a>
 													 </td>
 												</tr>

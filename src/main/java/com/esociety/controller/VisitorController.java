@@ -76,6 +76,42 @@ public class VisitorController {
 		return "ViewVisitor";
 	}
 	
+	@GetMapping("editvisitor")
+ 	public String editVisitor(Integer visitorId,Model model) {
+ 		Optional<VisitorEntity> op = repoVisitor.findById(visitorId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listvisitor";
+ 		} else {
+ 			model.addAttribute("vehicle",op.get());
+ 			return "EditVisitor";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updatevisitor")
+ 	public String updateVisitor(VisitorEntity visitorEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(visitorEntity.getVisitorId());//id? db? 
+ 
+ 		Optional<VisitorEntity> op = repoVisitor.findById(visitorEntity.getVisitorId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			VisitorEntity dbVisitor = op.get(); //pcode vhreg type id userId 
+ 			dbVisitor.setPurpose(visitorEntity.getPurpose());//code 
+ 			dbVisitor.setAllowed(visitorEntity.getAllowed());//type 
+ 			dbVisitor.setVisitorName(visitorEntity.getVisitorName());//type 
+ 			dbVisitor.setMobileNo(visitorEntity.getMobileNo());//type 
+ 			dbVisitor.setEntryTime(visitorEntity.getEntryTime());//type 
+ 			dbVisitor.setExitTime(visitorEntity.getExitTime());//type 
+ 
+ 			//
+ 			repoVisitor.save(dbVisitor);
+ 		}
+ 		return "redirect:/listvisitor";
+ 	}
+ 	
+	
 	@GetMapping("deletevisitor")
 	public String deleteVisitor(Integer visitorId) {
 		repoVisitor.deleteById(visitorId);//delete from members where memberID = :memberId

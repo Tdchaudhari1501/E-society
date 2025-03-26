@@ -1,12 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+
 <!-- ======= Sidebar ======= -->
   <aside id="sidebar" class="sidebar">
 
@@ -22,7 +14,7 @@
       
       
       <li class="nav-item"><a class="nav-link collapsed"
-			data-bs-target="#6" data-bs-toggle="collapse" href="#">
+			data-bs-target="#6" data-bs-toggle="collapse" href="">
 				<i class="bi bi-truck-flatbed"></i><span>Deliverable</span><i
 				class="bi bi-chevron-down ms-auto"></i>
 		</a>
@@ -37,6 +29,7 @@
 			</ul></li>
 		<!-- End Components Nav -->
 		
+		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#5" data-bs-toggle="collapse" href="#">
 				<i class="bi bi-person"></i><span>Visitors</span><i
@@ -44,7 +37,7 @@
 		</a>
 			<ul id="5" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="newvisitor"> <i class="bi bi-circle"></i><span>Add
 							Visitor</span>
 				</a></li>
 				<li><a href="listvisitor"> <i class="bi bi-circle"></i><span>List
@@ -154,6 +147,3 @@
     </ul>
 
   </aside><!-- End Sidebar-->
-
-</body>
-</html>

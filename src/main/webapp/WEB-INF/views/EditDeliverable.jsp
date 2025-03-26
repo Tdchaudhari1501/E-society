@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | View Security</title>
+<title>Admin | Edit Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,22 +26,26 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>View Security</h1>
+			<h1>Edit Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">View Security</li>
+					<li class="breadcrumb-item active">Edit Deliverable</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<!-- Display content -->
-			 
-				Name: ${security.name }<br>
-				Contact Number:  ${security.contactNum }<br>
-				Schedule :  ${security.schedule }<br>
+			<form action="updatedeliverable" method="post">
+ 	    Title : <input type="text" name="isPickup" value="${deliverable.isPickup}" /><br> <br>
+ 		
+ 			
+ 		<input type="hidden" name="deliverablesId"  value="${deliverable.deliverablesId}"/>
+ 		
+ 		<input type="submit" value="Update Delieverable" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

@@ -80,8 +80,8 @@ public class SessionController {
 	@PostMapping("authenticate")
 	public String authenticate(String email, String password, Model model, HttpSession session) {// sakira@yopmail.com
 																									// sakira
-		System.out.println(email);
-		System.out.println(password);
+//		System.out.println(email);
+//		System.out.println(password);
 
 		// users -> email,password
 		Optional<UserEntity> op = repoUser.findByEmail(email);

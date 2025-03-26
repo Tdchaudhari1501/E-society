@@ -65,6 +65,37 @@ public class DeliverablesController {
 		return "ViewDeliverable";
 	}
 	
+	@GetMapping("editdeliverable")
+ 	public String editDeliverable(Integer deliverablesId,Model model) {
+ 		Optional<DeliverablesEntity> op = repoDeliverable.findById(deliverablesId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/listdeliverable";
+ 		} else {
+ 			model.addAttribute("deliverable",op.get());
+ 			return "EditDeliverable";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updatedeliverable")
+ 	public String updateDeliverable(DeliverablesEntity deliverablesEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(deliverablesEntity.getDeliverablesId());//id? db? 
+ 
+ 		Optional<DeliverablesEntity> op = repoDeliverable.findById(deliverablesEntity.getDeliverablesId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			DeliverablesEntity dbDeliverable = op.get(); //pcode vhreg type id userId 
+ 			dbDeliverable.setIsPickup(deliverablesEntity.getIsPickup());//code 
+ 			
+
+ 			//
+ 			repoDeliverable.save(dbDeliverable);
+ 		}
+ 		return "redirect:/listdeliverable";
+ 	}
+	
 	@GetMapping("deletedeliverable")
 	public String deletedeliverable(Integer deliverablesId) {
 		repoDeliverable.deleteById(deliverablesId);//delete from members where memberID = :memberId
