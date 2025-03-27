@@ -5,7 +5,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.html">
+        <a class="nav-link " href="home">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -20,10 +20,10 @@
 		</a>
 			<ul id="6" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newuser"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="adddeliverable"> <i class="bi bi-circle"></i><span>Add
 							Deliverable</span>
 				</a></li>
-				<li><a href="listDeliverable"> <i class="bi bi-circle"></i><span>List
+				<li><a href="mydeliverables"> <i class="bi bi-circle"></i><span>List
 							Deliverable</span>
 				</a></li>
 			</ul></li>
@@ -37,10 +37,10 @@
 		</a>
 			<ul id="5" class="nav-content collapse "
 				data-bs-parent="#sidebar-nav">
-				<li><a href="newvisitor"> <i class="bi bi-circle"></i><span>Add
+				<li><a href="addvisitor"> <i class="bi bi-circle"></i><span>Add
 							Visitor</span>
 				</a></li>
-				<li><a href="listvisitor"> <i class="bi bi-circle"></i><span>List
+				<li><a href="myvisitors"> <i class="bi bi-circle"></i><span>List
 							Visitor</span>
 				</a></li>
 			</ul></li>

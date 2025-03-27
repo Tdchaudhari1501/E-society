@@ -17,7 +17,9 @@ public class DeliverablesEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer deliverablesId;
 	private Integer houseId;
-	private Date date;
+	private Integer userId;
+	private String productPhoto;
+	private  Date date;
 	private String isPickup;
 	public Integer getDeliverablesId() {
 		return deliverablesId;
@@ -31,18 +33,33 @@ public class DeliverablesEntity {
 	public void setHouseId(Integer houseId) {
 		this.houseId = houseId;
 	}
-	public Date getDate() {
-		return date;
-	}
-	public void setDate(Date date) {
-		this.date = date;
-	}
+	
+	
 	public String getIsPickup() {
 		return isPickup;
 	}
 	public void setIsPickup(String isPickup) {
 		this.isPickup = isPickup;
 	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+	public String getProductPhoto() {
+		return productPhoto;
+	}
+	public void setProductPhoto(String productPhoto) {
+		this.productPhoto = productPhoto;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	
 	
 	
 }

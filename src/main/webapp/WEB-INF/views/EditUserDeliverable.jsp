@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>User | Edit Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,44 +26,26 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Member</h1>
+			<h1>Edit Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New Member</li>
+					<li class="breadcrumb-item active">Edit Deliverable</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="addmember" method="post" enctype="multipart/form-data">
-	    <label for="membername">MemberName: </label>
-	    <input type="text" id="memberanme" name="membername">
-	    
-	   <br><br>
-	   <label for="age">Age: </label>
-	    <input type="text" id="age" name="age">
-	    <br> House: 
-		<select name="houseId">
-			
-		<option>Select House</option>
-			
-			<c:forEach items="${allHouse}" var="h">
-
-			   <option value="${ h.houseId}">${h.title }</option>
-			
-			</c:forEach>
-
-		</select> 
-		<br>
-	   <br><br>
-	   <label for="profilePhoto">ProfilePhoto: </label>
-	    <input type="file" id="profilePhoto" name="profilePic">
-
-	   <br><br>
-	   <input type="submit" value="SaveMember">
-    </form>
+			<form action="updateuserdeliverable" method="post">
+ 	         IsPickUp : <input type="text" name="isPickup" value="${deliverable.isPickup}" /><br> <br>
+ 		    
+ 			
+ 		<input type="hidden" name="deliverablesId"  value="${deliverable.deliverablesId}"/>
+ 		
+ 		<input type="submit" value="Update UserDelieverable" />
+ 	   </form>
+			</div>
 		</section>
 
 	</main>

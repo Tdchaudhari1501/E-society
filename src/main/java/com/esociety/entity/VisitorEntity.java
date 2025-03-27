@@ -15,6 +15,7 @@ public class VisitorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer visitorId;
+	private Integer userId;//fk session
 	private Integer visitorCategoryId;
 	private Integer houseId;
 	private String purpose;
@@ -90,6 +91,12 @@ public class VisitorEntity {
 	}
 	public void setExitTime(String exitTime) {
 		this.exitTime = exitTime;
+	}
+	public Integer getUserId() {
+		return userId;
+	}
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 	
 	

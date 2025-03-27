@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>Admin | New Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,25 +26,19 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Member</h1>
+			<h1>New Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New Member</li>
+					<li class="breadcrumb-item active">New Deliverable</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="addmember" method="post" enctype="multipart/form-data">
-	    <label for="membername">MemberName: </label>
-	    <input type="text" id="memberanme" name="membername">
-	    
-	   <br><br>
-	   <label for="age">Age: </label>
-	    <input type="text" id="age" name="age">
-	    <br> House: 
+			<form action="adddeliverable" method="post" enctype="multipart/form-data">
+	     <br> House: 
 		<select name="houseId">
 			
 		<option>Select House</option>
@@ -57,13 +51,16 @@
 
 		</select> 
 		<br>
-	   <br><br>
-	   <label for="profilePhoto">ProfilePhoto: </label>
-	    <input type="file" id="profilePhoto" name="profilePic">
-
-	   <br><br>
-	   <input type="submit" value="SaveMember">
-    </form>
+		<label for="title">IsPickUp: </label>
+		<input type="text" id="title" name="isPickup">
+		<br>
+		
+		<label for="productPhoto">Product Photo: </label>
+		<input type="file" id="productPhoto" name="profilePic">
+		<br>
+		<input type="submit" value="Save Title">
+	</form>
+		</section>
 		</section>
 
 	</main>

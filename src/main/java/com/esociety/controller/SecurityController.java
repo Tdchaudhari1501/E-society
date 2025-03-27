@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 
 import com.esociety.entity.SecurityEntity;
-import com.esociety.entity.VehicleEntity;
 import com.esociety.repository.SecurityRepository;
 
 @Controller

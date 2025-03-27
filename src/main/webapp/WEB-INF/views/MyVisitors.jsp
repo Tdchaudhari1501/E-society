@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>User| List Members</title>
+<title>User| List Visitors</title>
 <!-- Favicons -->
 <link href="assets/img/favicon.png" rel="icon">
 <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -32,7 +32,7 @@
 <!-- Template Main CSS File -->
 <link href="assets/css/style.css" rel="stylesheet">
 
-	<jsp:include page="AdminCss.jsp"></jsp:include>
+<jsp:include page="AdminCss.jsp"></jsp:include>
 </head>
 <body>
 
@@ -42,11 +42,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List Member</h1>
+			<h1>List Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="home">Home</a></li>
-					<li class="breadcrumb-item active">List Member</li>
+					<li class="breadcrumb-item active">List Visitor</li>
 				</ol>
 			</nav>
 		</div>
@@ -65,32 +65,42 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Members<span>/all/</span>
+										Visitors<span>/all/</span>
 									</h5>
 
 									<table class="table datatable datatable-table table-hover"
 										id="myTable">
 										<thead>
 											<tr>
-												<th>MemberName</th>
-												<th>Age</th>
-												<th>Photo</th>
+												<th>Purpose</th>
+												<th>allowed</th>
+												<th>visitorName</th>
+												<th>mobileNo</th>
+												<th>profilePhoto</th>
+												<th>Date</th>
+												<th>entryTime</th>
+												<th>exitTime</th>
 												<th>Action</th>
 											</tr>
 										</thead>
 
 										<tbody>
 
-											<c:forEach items="${allMember}" var="m">
+											<c:forEach items="${allVisitor}" var="v">
 												<tr>
-													<td>${m[0]}</td>
-													<td>${m[1]}</td>
-													<td><img alt="photo" src="${m[2]}" style="hight:50px; width: 50px;" > </td>
+													<td>${v[1]}</td>
+													<td>${v[2]}</td>
+													<td>${v[0]}</td>
+													<td>${v[5]}</td>
+													<td><img alt="photo" src="${v[6]}"
+														style="hight: 50px; width: 50px;"></td>
+													<td>${v[7]}</td>
+													<td>${v[3]}</td>
+													<td>${v[4]}</td>
 
-
-													<td><a href="editusermember?memberId=${m[3]}">Edit</a>
-														|<a href="deleteusermember?memberId=${m[3]}">Delete</a>|
-														<a href="viewusermember?memberId=${m[3]}">View</a></td>
+													<td><a href="edituservisitor?visitorId=${v[8]}">Edit</a> |<a
+														href="deleteuservisitor?visitorId=${v[8]}">Delete</a>| <a
+														href="viewuservisitor?visitorId=${v[8]}">View</a></td>
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -116,11 +126,11 @@
 		</section>
 	</main>
 	<!-- End of main -->
-	
+
 	<jsp:include page="UserFooter.jsp"></jsp:include>
-	
+
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 </body>
 
-	
+
 </html>

@@ -1,4 +1,7 @@
 
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +12,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>User| View Visitor</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,44 +29,26 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Member</h1>
+			<h1>View Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New Member</li>
+					<li class="breadcrumb-item active">View Visitor</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="addmember" method="post" enctype="multipart/form-data">
-	    <label for="membername">MemberName: </label>
-	    <input type="text" id="memberanme" name="membername">
-	    
-	   <br><br>
-	   <label for="age">Age: </label>
-	    <input type="text" id="age" name="age">
-	    <br> House: 
-		<select name="houseId">
 			
-		<option>Select House</option>
-			
-			<c:forEach items="${allHouse}" var="h">
-
-			   <option value="${ h.houseId}">${h.title }</option>
-			
-			</c:forEach>
-
-		</select> 
-		<br>
-	   <br><br>
-	   <label for="profilePhoto">ProfilePhoto: </label>
-	    <input type="file" id="profilePhoto" name="profilePic">
-
-	   <br><br>
-	   <input type="submit" value="SaveMember">
-    </form>
+                <div><img alt="photo" src="${visitor.profilePhoto}" style="hight:170px; width:80px;" > </div>
+				Purpose: ${visitor.purpose }<br>
+				Allowed:  ${visitor.allowed }<br>
+				VisitorName :  ${visitor.visitorName }<br>
+				Mobile Number:  ${visitor.mobileNo }<br>
+				Date: ${visitor.date }<br>
+				Entry Time:  ${visitor.entryTime }<br>
+				Exit Time:  ${visitor.exitTime }<br>
 		</section>
 
 	</main>

@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>Admin | New Visitor</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,25 +26,33 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Member</h1>
+			<h1>New Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New Member</li>
+					<li class="breadcrumb-item active">New Visitor</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="addmember" method="post" enctype="multipart/form-data">
-	    <label for="membername">MemberName: </label>
-	    <input type="text" id="memberanme" name="membername">
-	    
-	   <br><br>
-	   <label for="age">Age: </label>
-	    <input type="text" id="age" name="age">
-	    <br> House: 
+			<form action="addvisitor" method="post" enctype="multipart/form-data">
+		<label for="purpose">Purpose: </label>
+		<input type="text" id="purpose" name="purpose">
+		<br><br>
+		
+		
+		
+		<label for="allowed">Allowed: </label>
+		<input type="text" id="allowed" name="allowed">
+		<br><br>
+		
+		<label for="visitorName">Visitor Name: </label>
+		<input type="text" id="visitorName" name="visitorName">
+		<br>
+		<br>
+		 <br> House: 
 		<select name="houseId">
 			
 		<option>Select House</option>
@@ -56,14 +64,42 @@
 			</c:forEach>
 
 		</select> 
-		<br>
-	   <br><br>
-	   <label for="profilePhoto">ProfilePhoto: </label>
-	    <input type="file" id="profilePhoto" name="profilePic">
+		<br><br>
+		
+		
+		 <br> VisitorCategory: 
+		<select name="visitorCategoryId">
+			
+		<option>Select VisitorCategory</option>
+			
+			<c:forEach items="${allvisitorcate}" var="h">
 
-	   <br><br>
-	   <input type="submit" value="SaveMember">
-    </form>
+			   <option value="${ h.visitorCategoryId}">${h.categoryName }</option>
+			
+			</c:forEach>
+
+		</select> 
+		<br><br>
+		
+		<label for="mobileNo">Mobile No: </label>
+		<input type="text" id="mobileNo" name="mobileNo">
+		<br><br>
+		
+		<label for="profilePhoto">Profile Photo: </label>
+		<input type="file" id="profilePhoto" name="profilePic">
+		<br><br>
+		
+		<label for="entryTime">Entry Time: </label>
+		<input type="text" id="entryTime" name="entryTime">
+		<br><br>
+		
+		<label for="exitTime">Exit Time: </label>
+		<input type="text" id="exitTime" name="exitTime">
+		<br><br>
+		
+		<input type="submit" value="Add Visitor">
+	</form>
+	
 		</section>
 
 	</main>

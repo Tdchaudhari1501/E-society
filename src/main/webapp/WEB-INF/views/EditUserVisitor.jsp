@@ -1,4 +1,6 @@
 
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +11,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>User | Edit Visitor</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -26,44 +28,31 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>New Member</h1>
+			<h1>Edit Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">New Member</li>
+					<li class="breadcrumb-item active">Edit Visitor</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="addmember" method="post" enctype="multipart/form-data">
-	    <label for="membername">MemberName: </label>
-	    <input type="text" id="memberanme" name="membername">
-	    
-	   <br><br>
-	   <label for="age">Age: </label>
-	    <input type="text" id="age" name="age">
-	    <br> House: 
-		<select name="houseId">
-			
-		<option>Select House</option>
-			
-			<c:forEach items="${allHouse}" var="h">
-
-			   <option value="${ h.houseId}">${h.title }</option>
-			
-			</c:forEach>
-
-		</select> 
-		<br>
-	   <br><br>
-	   <label for="profilePhoto">ProfilePhoto: </label>
-	    <input type="file" id="profilePhoto" name="profilePic">
-
-	   <br><br>
-	   <input type="submit" value="SaveMember">
-    </form>
+			<form action="updateuservisitor" method="post">
+ 		Purpose : <input type="text" name="purpose" value="${visitor.purpose}" /><br> <br>
+ 		Allowed : <input type="text" name="allowed" value="${visitor.allowed}" /><br> <br>
+ 		VisitorName: <input type="text" name="visitorName" value="${visitor.visitorName}" /><br> <br>
+ 		Mobile No: <input type="text" name="mobileNo" value="${visitor.mobileNo}" /><br> <br>
+ 		EntryTime: <input type="text" name="entryTime" value="${visitor.entryTime}" /><br> <br>
+ 		ExitTime: <input type="text" name="exitTime" value="${visitor.exitTime}" /><br> <br>
+ 		
+ 			
+ 		<input type="hidden" name="visitorId"  value="${visitor.visitorId}"/>
+ 		
+ 		<input type="submit" value="Update UserVisitor" />
+ 	</form>
+			</div>
 		</section>
 
 	</main>

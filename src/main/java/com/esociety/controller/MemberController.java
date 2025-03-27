@@ -157,5 +157,73 @@ public class MemberController {
 		repoMember.deleteById(memberId);// delete from members where memberID = :memberId
 		return "redirect:/listmember";
 	}
+	
+	
+	
+	
+	//user Dashboard
+	
+	
+	
+	@GetMapping("deleteusermember")
+	public String deleteusermember(Integer memberId) {
+		repoMember.deleteById(memberId);//delete from members where memberID = :memberId
+		return "redirect:/mymembers";
+	}
+	
+	
+	@GetMapping("viewusermember")
+	public String viewusermember(Integer memberId, Model model) {
+		// ?
+		System.out.println("id ===> " + memberId);
+		Optional<MemberEntity> op = repoMember.findById(memberId);
+		if (op.isEmpty()) {
+			// not found
+		} else {
+			// data found
+			MemberEntity member = op.get();
+			// send data to jsp ->
+			model.addAttribute("member", member);
+
+		}
+
+		return "ViewUserMember";
+	}
+	
+	@GetMapping("editusermember")
+ 	public String editusermember(Integer memberId,Model model) {
+ 		Optional<MemberEntity> op = repoMember.findById(memberId);
+ 		if (op.isEmpty()) {
+ 			return "redirect:/mymembers";
+ 		} else {
+ 			model.addAttribute("member",op.get());
+ 			return "EditUserMember";
+ 
+ 		}
+ 	}
+	
+	@PostMapping("updateusermember")
+ 	public String updateusermember(MemberEntity memberEntity) {//pcode vhreg type vid 
+ 		
+ 		System.out.println(memberEntity.getMemberId());//id? db? 
+ 
+ 		Optional<MemberEntity> op = repoMember.findById(memberEntity.getMemberId());
+ 		
+ 		if(op.isPresent())
+ 		{
+ 			MemberEntity dbMember = op.get(); //pcode vhreg type id userId 
+ 			dbMember.setAge(memberEntity.getAge());//code 
+ 			dbMember.setMembername(memberEntity.getMembername());//code 
+ 			
+ 			
+
+ 			
+
+ 			//
+ 			repoMember.save(dbMember);
+ 		}
+ 		return "redirect:/mymembers";
+ 	}
+
 
 }
