@@ -21,7 +21,7 @@ public class UserEntity {
 	private String profilePicPath;
 	private String password;
 	private String contactNum;
-	private String profilePhoto;
+	//private String profilePhoto;
 	private String  otp;
 	
 	private String role;// member,security,chairman,admin
@@ -87,14 +87,14 @@ public class UserEntity {
 	}
 
 
-	public String getProfilePhoto() {
-		return profilePhoto;
-	}
-
-
-	public void setProfilePhoto(String profilePhoto) {
-		this.profilePhoto = profilePhoto;
-	}
+//	public String getProfilePhoto() {
+//		return profilePhoto;
+//	}
+//
+//
+//	public void setProfilePhoto(String profilePhoto) {
+//		this.profilePhoto = profilePhoto;
+//	}
 
 
 	public String getRole() {
