@@ -41,12 +41,12 @@
 
 		<section class="section dashboard">
 			
-              <div><img alt="photo" src="${user.profilePhoto}" style="hight:170px; width:80px;" > </div>
+              <div><img alt="photo" src="${users.profilePicPath}" style="hight:170px; width:80px;" > </div>
                
-				FirstName: ${user.firstName }<br>
-				LastName:  ${user.lastName }<br>
-				Email :  ${user.email }<br>
-				ContactNumber:  ${user.contactNum }<br>
+				FirstName: ${users.firstName }<br>
+				LastName:  ${users.lastName }<br>
+				Email :  ${users.email }<br>
+				ContactNumber:  ${users.contactNum }<br>
 				
 		</section>
 

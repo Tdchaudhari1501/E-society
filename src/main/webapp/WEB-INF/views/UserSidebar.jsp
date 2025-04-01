@@ -116,7 +116,7 @@
       
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
+        <a class="nav-link collapsed" href="contact">
           <i class="bi bi-envelope"></i>
           <span>Contact</span>
         </a>

@@ -32,6 +32,8 @@ public class UserController {
 		return "Home";
 	}
 
+	
+
 	@GetMapping("listuser")
 	public String listUser(Model model) {
 		List<UserEntity> users = repoUser.findAll();
@@ -48,9 +50,9 @@ public class UserController {
 			// not found
 		} else {
 			// data found
-			UserEntity user = op.get();
+			UserEntity users = op.get();
 			// send data to jsp ->
-			model.addAttribute("user", user);
+			model.addAttribute("users", users);
 
 		}
 
@@ -63,48 +65,6 @@ public class UserController {
 		return "redirect:/listuser";
 	}
 
-	@GetMapping("editprofile")
-	public String editUser(Integer userId, Model model) {
-
-		Optional<UserEntity> op = repoUser.findById(userId);
-		if (op.isEmpty()) {
-			return "Not valid user";
-		} else {
-			model.addAttribute("user", op.get());
-			return "MyProfile";
-		}
-
-	}
-
-	@PostMapping("updateprofile")
-	public String updateUser(UserEntity userEntity, Integer userId, HttpSession httpSession, MultipartFile profilePic) {
-
-		Optional<UserEntity> op = repoUser.findById(userEntity.getUserId());
-
-		if (op.isPresent()) {
-			UserEntity dbUsers = op.get();
-			dbUsers.setFirstName(userEntity.getFirstName());
-			dbUsers.setLastName(userEntity.getLastName());
-			dbUsers.setEmail(userEntity.getEmail());
-			dbUsers.setContactNum(userEntity.getContactNum());
-
-			if ((profilePic.getOriginalFilename().endsWith(".jpg") || profilePic.getOriginalFilename().endsWith(".png")
-					|| profilePic.getOriginalFilename().endsWith(".jpeg"))) {
-				try {
-					Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
-					dbUsers.setProfilePicPath(result.get("url").toString());
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-			}
-
-			//
-			repoUser.save(dbUsers);
-		}
-
-		return "redirect:/editprofile?userId=5";// change Id
-	}
+	
 
 }

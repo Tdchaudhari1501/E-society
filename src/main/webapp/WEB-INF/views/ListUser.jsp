@@ -1,3 +1,6 @@
+
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -72,8 +75,9 @@
 													<td>${u.lastName}</td>
 													<td>${u.email}</td>
 													<td>${u.contactNum}</td>
-													<td>${u.profilePhoto}</td>
-													<td><a href="#">Edit</a> |<a href="deleteuser?userId=${u.userId}">Delete</a>|
+													<td><img alt="photo" src="${u.profilePicPath}" style="hight:50px; width: 50px;" > </td>
+													
+													<td><a href="deleteuser?userId=${u.userId}">Delete</a>|
 													 <a href="viewuser?userId=${u.userId}">View</a>
 													 </td>
 												</tr>

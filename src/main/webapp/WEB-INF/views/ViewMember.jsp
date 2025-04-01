@@ -45,7 +45,7 @@
 					Age :  ${member.age }<br>
 					<!--  Prfoile :  ${member.profilePhoto }<br>-->
 			
-					House Id:  ${member.houseId }<br></div>
+				
 									
 			
 		</section>

@@ -31,7 +31,8 @@ public class SessionController {
 	MailService serviceMail;
 	@Autowired
 	Cloudinary cloudinary;
-
+	
+	
 	@GetMapping(value = { "/", "signup" })
 	public String signup() {
 		return "Signup";
@@ -169,5 +170,54 @@ public class SessionController {
 		}
 		model.addAttribute("msg", "Password updated");
 		return "Login";
+	}
+	
+	
+	//USER Dashboard Profile Updation
+	
+	
+	@GetMapping("editprofile")
+	public String editUser(Integer userId, Model model) {
+
+		Optional<UserEntity> op = repoUser.findById(userId);
+		if (op.isEmpty()) {
+			return "Not valid user";
+		} else {
+			model.addAttribute("user", op.get());
+			return "MyProfile";
+		}
+
+	}
+
+	@PostMapping("updateprofile")
+	public String updateUser(UserEntity userEntity, Integer userId, HttpSession httpSession, MultipartFile profilePic) {
+
+		Optional<UserEntity> op = repoUser.findById(userEntity.getUserId());
+
+		if (op.isPresent()) {
+			UserEntity dbUsers = op.get();
+			dbUsers.setFirstName(userEntity.getFirstName());
+			dbUsers.setLastName(userEntity.getLastName());
+			dbUsers.setEmail(userEntity.getEmail());
+			dbUsers.setContactNum(userEntity.getContactNum());
+
+			if ((profilePic.getOriginalFilename().endsWith(".jpg") || profilePic.getOriginalFilename().endsWith(".png")
+					|| profilePic.getOriginalFilename().endsWith(".jpeg"))) {
+				try {
+					Map result = cloudinary.uploader().upload(profilePic.getBytes(), ObjectUtils.emptyMap());
+					dbUsers.setProfilePicPath(result.get("url").toString());
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+
+			}
+
+			//
+			repoUser.save(dbUsers);
+		}
+
+	return "redirect:/editprofile?userId="+ userEntity.getUserId();// change Id
+	//	return "redirect:/home";
 	}
 }
