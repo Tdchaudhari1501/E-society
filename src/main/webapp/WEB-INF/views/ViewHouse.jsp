@@ -41,6 +41,8 @@
 			<!-- Display content -->
 			 
 			Title : ${house.title }<br>
+		    House No : ${house.houseNo }<br>
+			
 		</section>
 
 	</main>

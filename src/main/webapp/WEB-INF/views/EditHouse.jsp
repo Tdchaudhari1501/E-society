@@ -39,6 +39,7 @@
 		<section class="section dashboard">
 			<form action="updatehouse" method="post">
  	    Title : <input type="text" name="title" value="${house.title}" /><br> <br>
+ 	    House No : <input type="text" name="houseNo" value="${house.houseNo}" /><br> <br>
  		
  			
  		<input type="hidden" name="houseId"  value="${house.houseId}"/>

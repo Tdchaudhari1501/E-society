@@ -69,6 +69,12 @@ public class VisitorController {
 		m.addAttribute("listVisitor", listVisitor);
 		return "ListVisitor";
 	}
+	@GetMapping("reportvisitor")
+	public String ReportlistVehicle(Model m) {
+		List<VisitorEntity> listVisitor = repoVisitor.findAll();
+		m.addAttribute("listVisitor", listVisitor);
+		return "ReportVisitor";
+	}
 
 	@GetMapping("viewvisitor")
 	public String viewVehicle(Integer visitorId, Model model) {

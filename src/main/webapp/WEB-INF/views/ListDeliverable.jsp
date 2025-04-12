@@ -56,6 +56,9 @@
 										<thead>
 											<tr>
 												<th>Title</th>
+												<th>Name</th>
+												<th> Amount</th>
+												<th>ProductPhoto</th>
 											
 												<th>Action</th>
 											</tr>
@@ -65,7 +68,10 @@
 											<c:forEach items="${listDeliverable}" var="u">
 												<tr>
 													<td>${u.isPickup}</td>
+													<td>${u.name}</td>
+													<td>${u.amount}</td>
 													
+													<td><img alt="photo" src="${u.productPhoto}" style="hight:50px; width: 50px;" > </td>
 													
 													<td><a href="editdeliverable?deliverablesId=${u.deliverablesId}">Edit</a> |<a href="deletedeliverable?deliverablesId=${u.deliverablesId}">Delete</a>|
 													 <a href="viewdeliverable?deliverablesId=${u.deliverablesId}">View</a>

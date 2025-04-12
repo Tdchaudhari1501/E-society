@@ -14,6 +14,7 @@ public class HouseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer houseId;
 	private String title;
+	private Integer houseNo;
 	public Integer getHouseId() {
 		return houseId;
 	}
@@ -25,6 +26,12 @@ public class HouseEntity {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public Integer getHouseNo() {
+		return houseNo;
+	}
+	public void setHouseNo(Integer houseNo) {
+		this.houseNo = houseNo;
 	}
 	
 	

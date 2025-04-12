@@ -48,13 +48,15 @@
 						<div class="col-12">
 							<div class="card">
 
-
+                              
 								<div class="card-body">
 									<h5 class="card-title">
 										Profile<span>/${user.firstName}/</span>
 									</h5>
 
-
+                                      <div> <img src="${user.profilePicPath}" class="profile-img"
+						           alt="Profile Image"></div>
+						           <br>
 									<form class="row g-3 needs-validation" action="updateprofile"
 										method="post" enctype="multipart/form-data" novalidate>
 										<div class="col-12">

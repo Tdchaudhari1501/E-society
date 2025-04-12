@@ -184,8 +184,7 @@
 						class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
 						<li class="dropdown-header">
 							<h6>${user.firstName }&nbsp;${user.lastName}</h6>
-							 <span>Web
-								Designer</span>
+							<span>User</span>
 						</li>
 						<li>
 							<hr class="dropdown-divider">

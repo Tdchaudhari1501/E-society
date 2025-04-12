@@ -35,6 +35,12 @@ public class HouseController {
 		m.addAttribute("listHouse", listHouse);
 		return "ListHouse";
 	}
+	@GetMapping("reporthouse")
+	public String ReportlistHouse(Model m) {
+	List<HouseEntity> listHouse=repoHouse.findAll();
+		m.addAttribute("listHouse", listHouse);
+		return "ReportHouse";
+	}
 	@GetMapping("viewhouse")
 	public String viewHouse(Integer houseId, Model model) {
 		// ?
@@ -76,6 +82,7 @@ public class HouseController {
  		{
  			HouseEntity dbHouse = op.get(); //pcode vhreg type id userId 
  			dbHouse.setTitle(houseEntity.getTitle());//code 
+ 			dbHouse.setHouseNo(houseEntity.getHouseNo());
  			
 
  			//

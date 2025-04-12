@@ -56,7 +56,7 @@
 										<thead>
 											<tr>
 												<th>Name</th>
-												<th>Contact Number</th>
+												<th style="text-align:left">Contact Number</th>
 												<th>Schedule</th>	
 												<th>Action</th>
 											</tr>
@@ -66,7 +66,7 @@
 											<c:forEach items="${listSecurity}" var="u">
 												<tr>
 													<td>${u.name}</td>
-													<td>${u.contactNum}</td>
+													<td style="text-align:left">${u.contactNum}</td>
 													<td>${u.schedule}</td>
 													
 													<td><a href="editsecurity?securityId=${u.securityId}">Edit</a> |<a href="deletesecurity?securityId=${u.securityId}">Delete</a>|

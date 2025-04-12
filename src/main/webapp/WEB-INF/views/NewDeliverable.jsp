@@ -56,7 +56,7 @@
 		<input type="text" id="title" name="isPickup">
 		<br><br>
 		
-		<input type="submit" value="Save Title">
+		<input type="submit" value="Save Deliverable">
 	</form>
 		</section>
 

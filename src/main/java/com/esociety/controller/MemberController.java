@@ -92,6 +92,13 @@ public class MemberController {
 		m.addAttribute("listMember", listMember);
 		return "ListMember";
 	}
+	
+	@GetMapping("reportmember")
+	public String ReportlistVehicle(Model m) {
+		List<MemberEntity> listMember = repoMember.findAll();
+		m.addAttribute("listMember", listMember);
+		return "ReportMember";
+	}
 
 	@GetMapping("mymembers")
 	public String myMembers(HttpSession session, Model model) {

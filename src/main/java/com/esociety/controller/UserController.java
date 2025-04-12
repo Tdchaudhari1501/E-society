@@ -65,6 +65,9 @@ public class UserController {
 		return "redirect:/listuser";
 	}
 
-	
+//	@GetMapping("userprofile")
+//	public String forgotpassword() {
+//		return "UserProfile";
+//	}
 
 }

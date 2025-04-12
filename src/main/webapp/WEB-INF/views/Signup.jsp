@@ -68,7 +68,7 @@
                   </div>
 
                   <form class="row g-3 needs-validation" action="saveuser" method="post" enctype="multipart/form-data" novalidate>
-                    <div class="col-12">
+                    <div class="col-12 ">
                       <label for="firstName" class="form-label">First Name</label>
                       <input type="text" name="firstName" class="form-control" id="firstName" required>
                       <div class="invalid-feedback">Please, enter your First name!</div>
@@ -93,7 +93,7 @@
                       <div class="invalid-feedback">Please enter your password!</div>
                     </div>
                     <div class="col-12">
-                      <label for="ConfirmPassword" class="form-label">Password</label>
+                      <label for="ConfirmPassword" class="form-label">Confirm Password</label>
                       <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"  required>
                       <div class="invalid-feedback">Please confirm your password!</div>
                     </div>
@@ -131,7 +131,6 @@
                 <!-- You can delete the links only if you purchased the pro version. -->
                 <!-- Licensing information: https://bootstrapmade.com/license/ -->
                 <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-                Designed by <a href="https://github.com/Tdchaudhari1501/E-society">TusharChaudhari</a>
               </div>
 
             </div>

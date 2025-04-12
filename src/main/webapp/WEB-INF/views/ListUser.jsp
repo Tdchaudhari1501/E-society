@@ -61,7 +61,7 @@
 												<th>FirstName</th>
 												<th>LastName</th>
 												<th>Email</th>
-												<th>ContactNum</th>
+												<th style="text-align:left">ContactNum</th>
 												<th>ProfilePhoto</th>
 												
 												<th>Action</th>
@@ -74,7 +74,7 @@
 													<td>${u.firstName}</td>
 													<td>${u.lastName}</td>
 													<td>${u.email}</td>
-													<td>${u.contactNum}</td>
+													<td style="text-align:left">${u.contactNum}</td>
 													<td><img alt="photo" src="${u.profilePicPath}" style="hight:50px; width: 50px;" > </td>
 													
 													<td><a href="deleteuser?userId=${u.userId}">Delete</a>|

@@ -42,8 +42,11 @@
 		<label for="title">Title: </label>
 		<input type="text" id="title" name="title">
 		<br><br>
+		<label for="title">House No: </label>
+		<input type="text" id="houseNo" name="houseNo">
+		<br>
 		
-		<input type="submit" value="Save Title">
+		<input type="submit" value="Save House">
 	</form>
 			
 	

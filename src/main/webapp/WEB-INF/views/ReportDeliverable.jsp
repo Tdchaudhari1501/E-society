@@ -8,17 +8,17 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | List Member</title>
+<title>Report of Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
 
 <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
+<link href="https://cdn.datatables.net/buttons/3.2.2/css/buttons.dataTables.css" rel="stylesheet" />
 
 
 </head>
-<body> 
-
+<body>
 	<jsp:include page="AdminHeader.jsp"></jsp:include>
 
 	<jsp:include page="AdminSidebar.jsp"></jsp:include>
@@ -26,11 +26,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List Member</h1>
+			<h1>Report of Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">List Member</li>
+					<li class="breadcrumb-item active"> Deliverable</li>
 				</ol>
 			</nav>
 		</div>
@@ -49,29 +49,33 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Members<span>/all</span>
+										Deliverables<span>/all</span>
 									</h5>
 
 
 									<table class="table datatable datatable-table table-hover" id="myTable">
-										<thead >
-											<tr style="text-align: center">
-												<th>MemberName</th>
-												<th style="text-align:left">Age</th>
-												<th>Profile Photo</th>
-												<th>Action</th>
+										<thead>
+											<tr>
+												<th>Title</th>
+												<th>Name</th>
+												<th> Amount</th>
+												<th>ProductPhoto</th>
+											
+												
 											</tr>
 										</thead>
 
 										<tbody>
-											<c:forEach items="${listMember}" var="u">
-												<tr >
-													<td>${u.membername}</td>
-													<td style="text-align:left">${u.age}</td>
-													<td><img alt="photo" src="${u.profilePhoto}" style="hight:50px; width: 50px;" > </td>
-													<td><a href="editmember?memberId=${u.memberId}">Edit</a> |<a href="deletemember?memberId=${u.memberId}">Delete</a>|
-													 <a href="viewmember?memberId=${u.memberId}">View</a>
-													 </td>
+											<c:forEach items="${listDeliverable}" var="u">
+												<tr>
+													<td>${u.isPickup}</td>
+													<td>${u.name}</td>
+													<td>${u.amount}</td>
+													
+													<td><img alt="photo" src="${u.productPhoto}" style="hight:50px; width: 50px;" > </td>
+													
+													
+													
 												</tr>
 											</c:forEach>
 										</tbody>
@@ -107,15 +111,32 @@
 	
 
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
-	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
-
+  
+  	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+  	<script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.min.js"></script>
+  	<script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+  	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.dataTables.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+  	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+  	<script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.print.min.js"></script>
+  	
+  	
 	<script type="text/javascript">
 
 	$( document ).ready(function() {
-		let table = new DataTable('#myTable');
-	});
+  		//let table = new DataTable('#myTable');
+  	
+  		new DataTable('#myTable', {
+  	 	    layout: {
+  	 	        topStart: {
+  	 	            buttons: ['copy', 'excel', 'pdf', 'print']
+  	 	        }
+  	 	    }
+  	 	});
+  	
+  	});
 	</script>
 
 </body>

@@ -39,6 +39,8 @@
 		<section class="section dashboard">
 			<form action="updatedeliverable" method="post">
  	    Title : <input type="text" name="isPickup" value="${deliverable.isPickup}" /><br> <br>
+ 	     Name : <input type="text" name="name" value="${deliverable.name}" /><br> <br>
+ 	     Amount : <input type="text" name="amount" value="${deliverable.amount}" /><br> <br>
  		
  			
  		<input type="hidden" name="deliverablesId"  value="${deliverable.deliverablesId}"/>

@@ -48,7 +48,7 @@
 								<i class="bi bi-geo-alt"></i>
 								<h3>Address</h3>
 								<p>
-									A108 Adam Street,<br>New York, NY 535022
+									A108 Adam Street,<br> GJ, VAD 384355
 								</p>
 							</div>
 						</div>
@@ -57,7 +57,7 @@
 								<i class="bi bi-telephone"></i>
 								<h3>Call Us</h3>
 								<p>
-									+1 5589 55488 55<br>+1 6678 254445 41
+									+91 5589554885<br>+91 6678254445
 								</p>
 							</div>
 						</div>
@@ -66,7 +66,7 @@
 								<i class="bi bi-envelope"></i>
 								<h3>Email Us</h3>
 								<p>
-									info@example.com<br>contact@example.com
+									td1501@gmail.com<br>contact@gmail.com
 								</p>
 							</div>
 						</div>
@@ -109,7 +109,7 @@
 								</div>
 
 								<div class="col-md-12 text-center">	        
-									<button type="submit">Send Message</button>
+									<button class="btn btn-primary w-100" type="submit">Send Message</button>
 									<span class="text-sucess"> ${msg }</span>
 									
 								</div>

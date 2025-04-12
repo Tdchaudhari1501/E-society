@@ -57,6 +57,12 @@ public class DeliverablesController {
 		m.addAttribute("listDeliverable", listDeliverable);
 		return "ListDeliverable";
 	}
+	@GetMapping("reportDeliverable")
+	public String ReportlistDeliverable(Model m) {
+	List<DeliverablesEntity> listDeliverable=repoDeliverable.findAll();
+		m.addAttribute("listDeliverable", listDeliverable);
+		return "ReportDeliverable";
+	}
 	
 	@GetMapping("viewdeliverable")
 	public String viewdeliverable(Integer deliverablesId, Model model) {
@@ -99,6 +105,8 @@ public class DeliverablesController {
  		{
  			DeliverablesEntity dbDeliverable = op.get(); //pcode vhreg type id userId 
  			dbDeliverable.setIsPickup(deliverablesEntity.getIsPickup());//code 
+ 			dbDeliverable.setName(deliverablesEntity.getName());
+ 			dbDeliverable.setAmount(deliverablesEntity.getAmount());
  			
 
  			//
@@ -214,6 +222,8 @@ public class DeliverablesController {
 	 		{
 	 			DeliverablesEntity dbDeliverable = op.get(); //pcode vhreg type id userId 
 	 			dbDeliverable.setIsPickup(deliverablesEntity.getIsPickup());//code 
+	 			dbDeliverable.setName(deliverablesEntity.getName());
+	 			dbDeliverable.setAmount(deliverablesEntity.getAmount());
 	 			
 
 	 			//

@@ -33,7 +33,7 @@ public class SessionController {
 	Cloudinary cloudinary;
 	
 	
-	@GetMapping(value = { "/", "signup" })
+	@GetMapping(value = {  "signup" })
 	public String signup() {
 		return "Signup";
 	}
@@ -41,6 +41,10 @@ public class SessionController {
 	@GetMapping("login") //
 	public String login() { // method
 		return "Login"; // return jsp name
+	}
+	@GetMapping(value={"index","/"}) //
+	public String Index() { // method
+		return "Index"; // return jsp name
 	}
 
 	@PostMapping("saveuser")

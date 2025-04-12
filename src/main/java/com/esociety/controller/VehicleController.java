@@ -41,6 +41,12 @@ public class VehicleController {
 		m.addAttribute("listVehical", listVehical);
 		return "ListVehicle";
 	}
+	@GetMapping("reportvehicle")
+	public String ReportlistVehicle(Model m) {
+	List<VehicleEntity> listVehical	=repoVehicle.findAll();
+		m.addAttribute("listVehical", listVehical);
+		return "ReportVehicle";
+	}
 	@GetMapping("viewvehicle")
 	public String viewVehicle(Integer vehicleId, Model model) {
 		// ?

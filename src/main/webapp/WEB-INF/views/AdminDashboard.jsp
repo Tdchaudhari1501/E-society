@@ -224,7 +224,7 @@
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Visitors<span>${currentmonth}</span></h5>
+                  <h5 class="card-title">Visitors<span>| ${currentmonth}</span></h5>
 
                   <!-- Line Chart -->
                  <div class="row">

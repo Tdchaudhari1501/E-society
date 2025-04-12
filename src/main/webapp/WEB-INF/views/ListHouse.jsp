@@ -16,6 +16,7 @@
 <link  href="https://cdn.datatables.net/2.2.2/css/dataTables.bootstrap5.min.css" rel="stylesheet"/>
 
 
+
 </head>
 <body>
 	<jsp:include page="AdminHeader.jsp"></jsp:include>
@@ -52,21 +53,20 @@
 									</h5>
 
 
-									<table class="table datatable datatable-table table-hover" id="myTable">
-										<thead>
-											<tr>
-												<th>Title</th>
-											
-												<th>Action</th>
+									<table class="table datatable datatable-table table-hover" id="myTable" >
+										<thead >
+											<tr >
+												<th >Title</th>
+											    <th style="text-align:left" >House No</th> 
+												<th >Action</th>
 											</tr>
 										</thead>
 
-										<tbody>
+										<tbody >
 											<c:forEach items="${listHouse}" var="u">
 												<tr>
 													<td>${u.title}</td>
-													
-													
+													<td style="text-align:left" >${u.houseNo}</td>
 													<td><a href="edithouse?houseId=${u.houseId}">Edit</a> |<a href="deletehouse?houseId=${u.houseId}">Delete</a>|
 													 <a href="viewhouse?houseId=${u.houseId}">View</a>
 													 </td>

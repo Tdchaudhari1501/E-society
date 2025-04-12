@@ -56,8 +56,8 @@
 										<thead>
 											<tr>
 												<th>VisitorName</th>
-												<th>Allowed</th>
-												<th>Mobile Number</th>
+												<th style="text-align:left">Allowed</th>
+												<th style="text-align:left">Mobile Number</th>
 												<th>Entry Time</th>
 												<th>Exit Time</th>
 												<th>Action</th>
@@ -68,8 +68,8 @@
 											<c:forEach items="${listVisitor}" var="u">
 												<tr>
 													<td>${u.visitorName}</td>
-													<td>${u.allowed}</td>
-													<td>${u.mobileNo}</td>
+													<td style="text-align:left">${u.allowed}</td>
+													<td style="text-align:left">${u.mobileNo}</td>
 													<td>${u.entryTime}</td>
 													<td>${u.exitTime}</td>
 													<td><a href="editvisitor?visitorId=${u.visitorId}">Edit</a> |<a href="deletevisitor?visitorId=${u.visitorId}">Delete</a>|
