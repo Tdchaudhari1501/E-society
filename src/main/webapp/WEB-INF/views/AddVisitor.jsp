@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Visitor</title>
+<title>User | New Visitor</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -29,7 +29,7 @@
 			<h1>New Visitor</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">New Visitor</li>
 				</ol>
 			</nav>
@@ -97,7 +97,7 @@
 		<input type="text" id="exitTime" name="exitTime">
 		<br><br>
 		
-		<input type="submit" value="Add Visitor">
+		<input type="submit" class="btn btn-primary mt-2" value="Add Visitor">
 	</form>
 	
 		</section>

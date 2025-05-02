@@ -1,4 +1,6 @@
 
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -9,7 +11,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | Edit House</title>
+<title>User | New Complaint</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -19,41 +21,50 @@
 
 </head>
 <body>
-	<jsp:include page="AdminHeader.jsp"></jsp:include>
+	<jsp:include page="UserHeader.jsp"></jsp:include>
 
-	<jsp:include page="AdminSidebar.jsp"></jsp:include>
+	<jsp:include page="UserSidebar.jsp"></jsp:include>
 
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>Edit House</h1>
+			<h1>New Complaint</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
-					<li class="breadcrumb-item active">Edit House</li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
+					<li class="breadcrumb-item active">New Complaint</li>
 				</ol>
 			</nav>
 		</div>
 		<!-- End Page Title -->
 
 		<section class="section dashboard">
-			<form action="updatehouse" method="post">
- 	    Title : <input type="text" name="title" value="${house.title}" /><br> <br>
- 	    House No : <input type="text" name="houseNo" value="${house.houseNo}" /><br> <br>
- 		
- 			
- 		<input type="hidden" name="houseId"  value="${house.houseId}"/>
- 		
- 		<input type="submit" class="btn btn-primary mt-2" value="Update House" />
- 	</form>
-			</div>
+			<form action="savecomplaint" method="post">
+			    <label>Type</label>
+			    <select name="type" class="form-control">
+			        <option>Plumbing</option>
+			        <option>Electricity</option>
+			        <option>Cleaning</option>
+			         <option>Security</option>
+			        <option>Lift</option>
+			        <option>Parking</option>
+			        <option>Other</option>
+			        
+			    </select>
+			    <label>Other Type (optional)</label>
+                    <input type="text" name="otherType" class="form-control">
+                    
+			    <label>Description</label>
+			    <textarea name="description" class="form-control" required></textarea>
+			    <button type="submit" class="btn btn-primary mt-2">Submit Complaint</button>
+			</form>
 		</section>
 
 	</main>
 	<!-- main content end  -->
 
 
-	<jsp:include page="AdminFooter.jsp"></jsp:include>
+	<jsp:include page="UserFooter.jsp"></jsp:include>
 
 	<jsp:include page="AdminJs.jsp"></jsp:include>
 	

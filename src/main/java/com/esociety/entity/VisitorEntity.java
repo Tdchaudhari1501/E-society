@@ -1,12 +1,16 @@
 package com.esociety.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 
 @Entity
 @Table(name="visitor")
@@ -15,10 +19,12 @@ public class VisitorEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer visitorId;
+	  @Column(name = "user_id")
 	private Integer userId;//fk session
 	private Integer visitorCategoryId;
 	private Integer houseId;
 	private String purpose;
+	 @Column(name = "visit_date")
 	private Date date;
 	private Integer allowed;
 	private String visitorName;
@@ -26,6 +32,21 @@ public class VisitorEntity {
 	private String profilePhoto;
 	private String entryTime;
 	private String exitTime;
+	 private String status; // 'Pending', 'Approved', 'Denied'
+	 @Column(name = "created_at", updatable = false, insertable = false,
+	            columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+	    @Temporal(TemporalType.TIMESTAMP)
+	  private Date createdAt;
+
+	    private String otp;
+	    
+	    
+	public Date getCreatedAt() {
+			return createdAt;
+		}
+		public void setCreatedAt(Date createdAt) {
+			this.createdAt = createdAt;
+		}
 	public Integer getVisitorId() {
 		return visitorId;
 	}
@@ -50,6 +71,9 @@ public class VisitorEntity {
 	public void setPurpose(String purpose) {
 		this.purpose = purpose;
 	}
+	
+	
+	
 	public Date getDate() {
 		return date;
 	}
@@ -97,6 +121,18 @@ public class VisitorEntity {
 	}
 	public void setUserId(Integer userId) {
 		this.userId = userId;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getOtp() {
+		return otp;
+	}
+	public void setOtp(String otp) {
+		this.otp = otp;
 	}
 	
 	

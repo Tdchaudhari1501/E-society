@@ -48,7 +48,7 @@
  			<input type="hidden" name="memberId"  value="${member.memberId}"/>
  		
  		
- 		<input type="submit" value="Update Member" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update Member" />
  	</form>
 			
 		</section>

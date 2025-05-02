@@ -50,7 +50,7 @@
  			
  		<input type="hidden" name="visitorId"  value="${visitor.visitorId}"/>
  		
- 		<input type="submit" value="Update UserVisitor" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update UserVisitor" />
  	</form>
 			</div>
 		</section>

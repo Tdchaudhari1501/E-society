@@ -45,7 +45,7 @@
  			
  		<input type="hidden" name="deliverablesId"  value="${deliverable.deliverablesId}"/>
  		
- 		<input type="submit" value="Update UserDelieverable" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update UserDelieverable" />
  	   </form>
 			</div>
 		</section>

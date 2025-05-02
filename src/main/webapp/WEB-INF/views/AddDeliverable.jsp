@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Deliverable</title>
+<title>User | New Deliverable</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -29,7 +29,7 @@
 			<h1>New Deliverable</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">New Deliverable</li>
 				</ol>
 			</nav>
@@ -58,7 +58,7 @@
 		<label for="productPhoto">Product Photo: </label>
 		<input type="file" id="productPhoto" name="profilePic">
 		<br>
-		<input type="submit" value="Save Title">
+		<input type="submit" class="btn btn-primary mt-2" value="Save Title">
 	</form>
 		</section>
 		</section>

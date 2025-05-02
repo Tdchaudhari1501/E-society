@@ -9,7 +9,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>Admin | New Member</title>
+<title>User | New Member</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -29,7 +29,7 @@
 			<h1>New Member</h1>
 			<nav>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="admindashboard">Home</a></li>
+					<li class="breadcrumb-item"><a href="home">Home</a></li>
 					<li class="breadcrumb-item active">New Member</li>
 				</ol>
 			</nav>
@@ -62,7 +62,7 @@
 	    <input type="file" id="profilePhoto" name="profilePic">
 
 	   <br><br>
-	   <input type="submit" value="SaveMember">
+	   <input type="submit" class="btn btn-primary mt-2" value="SaveMember">
     </form>
 		</section>
 

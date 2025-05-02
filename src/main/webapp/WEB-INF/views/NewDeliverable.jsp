@@ -56,7 +56,7 @@
 		<input type="text" id="title" name="isPickup">
 		<br><br>
 		
-		<input type="submit" value="Save Deliverable">
+		<input type="submit" class="btn btn-primary mt-2" value="Save Deliverable">
 	</form>
 		</section>
 

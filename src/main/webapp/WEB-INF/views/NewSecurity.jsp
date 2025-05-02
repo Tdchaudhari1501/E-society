@@ -52,7 +52,7 @@
 		<input type="text" id="schedule" name="schedule">
 		<br><br>
 		
-		<input type="submit" value="Save Security">
+		<input type="submit" class="btn btn-primary mt-2" value="Save Security">
 	</form>
 		</section>
 

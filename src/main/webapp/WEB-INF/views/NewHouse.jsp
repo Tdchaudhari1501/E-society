@@ -46,7 +46,7 @@
 		<input type="text" id="houseNo" name="houseNo">
 		<br>
 		
-		<input type="submit" value="Save House">
+		<input type="submit" class="btn btn-primary mt-2" value="Save House">
 	</form>
 			
 	

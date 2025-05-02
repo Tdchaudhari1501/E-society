@@ -18,7 +18,7 @@
 		VehicleRegNo :  <input type="text" name="vechicleRegNo"/><br><br> 
 		NumberOfVisitors : <input type="text" name="NumberOfVisitors"/> <br><br> 
 		
-		<input type="submit" value="Save Guest"/>
+		<input type="submit" class="btn btn-primary mt-2" value="Save Guest"/>
 	
 	
 	</form>

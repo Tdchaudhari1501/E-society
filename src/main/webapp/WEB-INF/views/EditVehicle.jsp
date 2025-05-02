@@ -46,7 +46,7 @@
  			
  		<input type="hidden" name="vehicleId"  value="${vehicle.vehicleId}"/>
  		
- 		<input type="submit" value="Update Vehicle" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update Vehicle" />
  	</form>
 			</div>
 		</section>

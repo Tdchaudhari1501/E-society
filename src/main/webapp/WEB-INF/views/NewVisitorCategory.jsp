@@ -43,7 +43,7 @@
 		<input type="text" id="categoryName" name="categoryName">
 		<br><br>
 		
-		<input type="submit" value="Save VisitorCategory">
+		<input type="submit" class="btn btn-primary mt-2" value="Save VisitorCategory">
 	</form>
 			
 	

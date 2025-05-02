@@ -97,7 +97,7 @@
 		<input type="text" id="exitTime" name="exitTime">
 		<br><br>
 		
-		<input type="submit" value="Save Visitor">
+		<input type="submit" class="btn btn-primary mt-2" value="Save Visitor">
 	</form>
 	
 		</section>

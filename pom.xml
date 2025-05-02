@@ -90,7 +90,19 @@
 			    <artifactId>tomcat-embed-jasper</artifactId>
 			</dependency>
 				
-		
+		<!--For real time notification-->
+		<!-- WebSocket -->
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-websocket</artifactId>
+</dependency>
+<!-- Optional for JSON conversion -->
+<dependency>
+    <groupId>com.fasterxml.jackson.core</groupId>
+    <artifactId>jackson-databind</artifactId>
+</dependency>
+
+
 		
 		
 		

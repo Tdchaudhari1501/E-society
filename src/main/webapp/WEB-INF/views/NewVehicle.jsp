@@ -50,7 +50,7 @@
 		<input type="text" id="vehicleType" name="vehicleType">
 		<br><br>
 		
-		<input type="submit" value="Save Vehicle">
+		<input type="submit" class="btn btn-primary mt-2" value="Save Vehicle">
 	</form>
 			</div>
 		</section>

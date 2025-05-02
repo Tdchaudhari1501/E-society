@@ -65,7 +65,7 @@
 	    
 	  
 	   <br><br>
-	   <input type="submit" value="SaveMember">
+	   <input type="submit" class="btn btn-primary mt-2" value="SaveMember">
     </form>
 				
 			</div>

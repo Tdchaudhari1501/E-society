@@ -136,6 +136,32 @@
 				</a></li>
 			</ul></li>
 		<!-- End Components Nav -->
+		<li class="nav-item"><a class="nav-link collapsed"
+			data-bs-target="#7" data-bs-toggle="collapse" href="#">
+				<i class="bi bi-card-checklist"></i></i><span>Manage Complaints</span><i
+				class="bi bi-chevron-down ms-auto"></i>
+		</a>
+			<ul id="7" class="nav-content collapse "
+				data-bs-parent="#sidebar-nav">
+				<li><a href="admincomplaints" > <i class="bi bi-circle"></i><span>Manage Complaints
+							</span>
+				</a></li>
+				
+			</ul></li>
+		<!-- End Components Nav -->
+		<li class="nav-item"><a class="nav-link collapsed"
+			data-bs-target="#8" data-bs-toggle="collapse" href="#">
+				<i class="bi bi-card-checklist"></i></i><span>Manage Facilities</span><i
+				class="bi bi-chevron-down ms-auto"></i>
+		</a>
+			<ul id="8" class="nav-content collapse "
+				data-bs-parent="#sidebar-nav">
+				<li><a href="adminbookings" > <i class="bi bi-circle"></i><span>Manage Facilities
+							</span>
+				</a></li>
+				
+			</ul></li>
+		<!-- End Components Nav -->
 		
 		<li class="nav-item"><a class="nav-link collapsed"
 			data-bs-target="#7" data-bs-toggle="collapse" href="#">

@@ -10,7 +10,7 @@
    <form action="savestate" method="post">
         StateName: <input type="text" id="state" name="stateName" required>
 
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary mt-2">Submit</button>
         
        
     </form>

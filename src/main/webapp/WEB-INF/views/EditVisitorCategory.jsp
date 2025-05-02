@@ -43,7 +43,7 @@
  			
  		<input type="hidden" name="visitorCategoryId"  value="${visitorcategory.visitorCategoryId}"/>
  		
- 		<input type="submit" value="Update VisitorCategory" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update VisitorCategory" />
  	</form>
 			
 		</section>

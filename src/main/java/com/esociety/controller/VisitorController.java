@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
@@ -248,5 +249,23 @@ public class VisitorController {
  		}
  		return "redirect:/myvisitors";
  	}
+	@PostMapping("/verify")
+	public String verifyVisitor(@RequestParam String mobile, @RequestParam String otp, Model model) {
+	    List<VisitorEntity> visitors = repoVisitor.findByMobileNo(mobile);
+	    boolean valid = false;
+	    for (VisitorEntity v : visitors) {
+	        if (v.getOtp().equals(otp) && v.getStatus().equals("Approved")) {
+	            valid = true;
+	            break;
+	        }
+	    }
+	    if (valid) {
+	        model.addAttribute("verified", "Visitor verified successfully!");
+	    } else {
+	        model.addAttribute("error", "Invalid OTP or approval pending.");
+	    }
+	    return "verify-visitor";
+	}
+
 
 }

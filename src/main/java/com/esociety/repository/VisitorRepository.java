@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+
+
 import com.esociety.entity.VisitorEntity;
 
 @Repository
@@ -15,6 +17,11 @@ public interface VisitorRepository extends JpaRepository<VisitorEntity, Integer>
  	
  	@Query(nativeQuery = true,value = "select count(*) from visitor where month(date)=:month")
  	Integer countThisMonthVisitor(Integer month);
+ 	
+ 	 List<VisitorEntity> findByUserId(Integer userId);
+     List<VisitorEntity> findByStatus(String status);
+
+	List<VisitorEntity> findByMobileNo(String mobile);
  	
 // 	@Query(nativeQuery = true,value = "select count(*) from visitor where month(date)=:month")
 // 	Integer countThisDayVisitor(Integer day);

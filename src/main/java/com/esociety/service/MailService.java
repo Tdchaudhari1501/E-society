@@ -42,4 +42,14 @@ public class MailService {
 		mailSender.send(message);
 
 	}
+	
+	public void sendBookingConfirmation(String toEmail, String subject, String body) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("td1501@yopmail.com"); // Replace with your configured sender email
+        message.setTo(toEmail);
+        message.setSubject(subject);
+        message.setText(body);
+        mailSender.send(message);
+    }
+	
 }

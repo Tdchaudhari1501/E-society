@@ -46,7 +46,7 @@
  			
  		<input type="hidden" name="securityId"  value="${security.securityId}"/>
  		
- 		<input type="submit" value="Update Security" />
+ 		<input type="submit" class="btn btn-primary mt-2" value="Update Security" />
  	</form>
 			</div>
 		</section>

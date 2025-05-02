@@ -1,6 +1,5 @@
 
 
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -11,7 +10,7 @@
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-<title>User | List Member</title>
+<title>User | Facility Bookings</title>
 
 <jsp:include page="AdminCss.jsp"></jsp:include>
 
@@ -29,11 +28,11 @@
 	<main id="main" class="main">
 
 		<div class="pagetitle">
-			<h1>List Member</h1>
+			<h1>My Facility Bookings</h1>
 			<nav>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="home">Home</a></li>
-					<li class="breadcrumb-item active">List Member</li>
+					<li class="breadcrumb-item active"> My Facility Bookings</li>
 				</ol>
 			</nav>
 		</div>
@@ -52,37 +51,37 @@
 
 								<div class="card-body">
 									<h5 class="card-title">
-										Members<span>/all/</span>
+										My facility Bookings<span>/all/</span>
 									</h5>
 
-									<table class="table datatable datatable-table table-hover"
-										id="myTable">
-										<thead>
-											<tr>
-												<th>MemberName</th>
-												<th>Age</th>
-												<th>Photo</th>
-												<th>Action</th>
-											</tr>
-										</thead>
-
-										<tbody>
-
-											<c:forEach items="${allMember}" var="m">
-												<tr>
-													<td>${m[0]}</td>
-													<td>${m[1]}</td>
-													<td><img alt="photo" src="${m[2]}" style="hight:50px; width: 50px;" > </td>
-
-
-													<td><a href="editusermember?memberId=${m[3]}">Edit</a>
-														|<a href="deleteusermember?memberId=${m[3]}">Delete</a>|
-														<a href="viewusermember?memberId=${m[3]}">View</a></td>
-												</tr>
-											</c:forEach>
-										</tbody>
-
-									</table>
+									<table class="table datatable datatable-table table-hover" id="myTable">
+								    <thead>
+								        <tr><th>Facility</th><th>Date</th><th>Time</th><th>Status</th></tr>
+								    </thead>
+								    <tbody>
+								        <c:forEach var="b" items="${mybookings}">
+								            <tr>
+								                <td>${b.facilityName}</td>
+								                <td>${b.bookingDate}</td>
+								                <td>${b.startTime} - ${b.endTime}</td>
+								                <td>
+								                <!--${b.status}-->
+								                    <c:choose>
+											        <c:when test="${b.status == 'Approved'}">
+											            <span class="badge bg-success">${b.status}</span>
+											        </c:when>
+											        <c:when test="${b.status == 'Rejected'}">
+											            <span class="badge bg-danger">${b.status}</span>
+											        </c:when>
+											        <c:otherwise>
+											            <span class="badge bg-warning text-dark">${b.status}</span>
+											        </c:otherwise>
+											    </c:choose>
+								                </td>
+								            </tr>
+								        </c:forEach>
+								    </tbody>
+								</table>
 
 
 
