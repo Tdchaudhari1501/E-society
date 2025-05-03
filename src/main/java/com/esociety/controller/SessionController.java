@@ -108,7 +108,11 @@ public class SessionController {
 				} else if (dbUser.getRole().equals("USER")) {
 
 					return "redirect:/home";
-				} else {
+				} else if (dbUser.getRole().equals("GUARD")) {
+
+					return "redirect:/guard-dashboard";
+				} 
+				else {
 					model.addAttribute("error", "Please contact Admin with Error Code #0991");
 					return "Login";
 				}

@@ -81,7 +81,7 @@
 		</select> 
 		<br><br>
 		
-		<label for="mobileNo">Mobile No: </label>
+		<label for="mobileNo">Email: </label>
 		<input type="text" id="mobileNo" name="mobileNo">
 		<br><br>
 		

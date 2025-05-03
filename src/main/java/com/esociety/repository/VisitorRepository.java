@@ -22,6 +22,7 @@ public interface VisitorRepository extends JpaRepository<VisitorEntity, Integer>
      List<VisitorEntity> findByStatus(String status);
 
 	List<VisitorEntity> findByMobileNo(String mobile);
+	
  	
 // 	@Query(nativeQuery = true,value = "select count(*) from visitor where month(date)=:month")
 // 	Integer countThisDayVisitor(Integer day);

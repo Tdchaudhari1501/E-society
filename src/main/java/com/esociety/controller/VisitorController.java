@@ -1,10 +1,12 @@
 package com.esociety.controller;
 
 import java.io.IOException;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +27,7 @@ import com.esociety.entity.VisitorEntity;
 import com.esociety.repository.HouseRepository;
 import com.esociety.repository.VisitorCategoryRepository;
 import com.esociety.repository.VisitorRepository;
+import com.esociety.service.MailService;
 
 import jakarta.servlet.http.HttpSession;
 
@@ -39,6 +42,8 @@ public class VisitorController {
 
 	@Autowired
 	Cloudinary cloudinary;
+	@Autowired
+	MailService serviceMail;
 
 	@Autowired
 	VisitorCategoryRepository repoVisitorCate;
@@ -164,6 +169,14 @@ public class VisitorController {
 		Integer userId = user.getUserId();
 		visitorEntity.setUserId(userId);
 		visitorEntity.setDate(new Date());
+		String generatedOtp = String.valueOf(new Random().nextInt(899999) + 100000);
+		visitorEntity.setOtp(generatedOtp);
+
+		// Optionally send via email
+		UserEntity user1 = (UserEntity) session.getAttribute("user");
+		serviceMail.sendBookingConfirmation(visitorEntity.getMobileNo(), 
+		    "Your OTP for Visitor Entry", 
+		    "Please show this OTP at the gate: " + generatedOtp);
 
 		if (profilePic.getOriginalFilename().endsWith(".jpg") || profilePic.getOriginalFilename().endsWith(".png")
 				|| profilePic.getOriginalFilename().endsWith(".jpeg")) {
@@ -183,6 +196,8 @@ public class VisitorController {
 			model.addAttribute("error", "Not valid type of Profile Pic");
 			return "AddVisitor";
 		}
+		
+		
 		repoVisitor.save(visitorEntity);
 		return "redirect:/myvisitors";
 	}
@@ -249,23 +264,69 @@ public class VisitorController {
  		}
  		return "redirect:/myvisitors";
  	}
-	@PostMapping("/verify")
-	public String verifyVisitor(@RequestParam String mobile, @RequestParam String otp, Model model) {
-	    List<VisitorEntity> visitors = repoVisitor.findByMobileNo(mobile);
-	    boolean valid = false;
-	    for (VisitorEntity v : visitors) {
-	        if (v.getOtp().equals(otp) && v.getStatus().equals("Approved")) {
-	            valid = true;
-	            break;
-	        }
-	    }
-	    if (valid) {
-	        model.addAttribute("verified", "Visitor verified successfully!");
-	    } else {
-	        model.addAttribute("error", "Invalid OTP or approval pending.");
-	    }
-	    return "verify-visitor";
-	}
+	
+     
+	
+	// Guard - Dashboard
+    @GetMapping("guard-dashboard")
+    public String guardDashboard(Model model) {
+        List<VisitorEntity> visitors = repoVisitor.findAll();
+        model.addAttribute("visitors", visitors);
+        return "GuardDashboard";
+    }
 
+    @GetMapping("approvevisitor")
+    public String approveVisitor(@RequestParam Integer visitorId) {
+        Optional<VisitorEntity> op = repoVisitor.findById(visitorId);
+        if (op.isPresent()) {
+            VisitorEntity v = op.get();
+            v.setAllowed(1);
+            repoVisitor.save(v);
+        }
+        return "redirect:/guard-dashboard";
+    }
 
+    @GetMapping("entryexit")
+    public String updateEntryExit(@RequestParam Integer visitorId, @RequestParam String type) {
+        Optional<VisitorEntity> op =repoVisitor.findById(visitorId);
+        if (op.isPresent()) {
+            VisitorEntity v = op.get();
+            if ("entry".equals(type)) {
+                v.setEntryTime(LocalTime.now().toString());
+            } else {
+                v.setExitTime(LocalTime.now().toString());
+            }
+            repoVisitor.save(v);
+        }
+        return "redirect:/guard-dashboard";
+    }
+    
+    @PostMapping("verifyvisitorotp")
+    public String verifyOtp(@RequestParam String mobileNo, @RequestParam String otp, Model model) {
+        List<VisitorEntity> visitors = repoVisitor.findAll();
+
+        Optional<VisitorEntity> match = visitors.stream()
+            .filter(v -> v.getMobileNo().equals(mobileNo) && v.getOtp().equals(otp))
+            .findFirst();
+
+        if (match.isPresent()) {
+            VisitorEntity v = match.get();
+            v.setAllowed(1);
+            repoVisitor.save(v);
+            model.addAttribute("message", "OTP Verified! Visitor Approved.");
+            
+            return "guard-dashboard";
+            
+        } else {
+            model.addAttribute("message", "Invalid OTP or Mobile Number.");
+        }
+
+        return "verifyOtp";
+    }
+
+ // Loads OTP form page
+    @GetMapping("verifyvisitorotp")
+    public String loadOtpForm() {
+        return "verifyOtp"; // This should be your HTML/JSP file
+    }
 }

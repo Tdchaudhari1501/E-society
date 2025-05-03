@@ -45,7 +45,7 @@
 				Purpose: ${visitor.purpose }<br>
 				Allowed:  ${visitor.allowed }<br>
 				VisitorName :  ${visitor.visitorName }<br>
-				Mobile Number:  ${visitor.mobileNo }<br>
+				Email:  ${visitor.mobileNo }<br>
 				
 				Entry Time:  ${visitor.entryTime }<br>
 				Exit Time:  ${visitor.exitTime }<br>

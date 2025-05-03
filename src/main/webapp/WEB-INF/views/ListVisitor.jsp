@@ -57,7 +57,7 @@
 											<tr>
 												<th>VisitorName</th>
 												<th style="text-align:left">Allowed</th>
-												<th style="text-align:left">Mobile Number</th>
+												<th style="text-align:left">Email</th>
 												<th>Entry Time</th>
 												<th>Exit Time</th>
 												<th>Action</th>

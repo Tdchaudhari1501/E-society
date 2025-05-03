@@ -32,6 +32,7 @@ public class VisitorEntity {
 	private String profilePhoto;
 	private String entryTime;
 	private String exitTime;
+	
 	 private String status; // 'Pending', 'Approved', 'Denied'
 	 @Column(name = "created_at", updatable = false, insertable = false,
 	            columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

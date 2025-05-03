@@ -43,7 +43,7 @@
  		Purpose : <input type="text" name="purpose" value="${visitor.purpose}" /><br> <br>
  		Allowed : <input type="text" name="allowed" value="${visitor.allowed}" /><br> <br>
  		VisitorName: <input type="text" name="visitorName" value="${visitor.visitorName}" /><br> <br>
- 		Mobile No: <input type="text" name="mobileNo" value="${visitor.mobileNo}" /><br> <br>
+ 		Email: <input type="text" name="mobileNo" value="${visitor.mobileNo}" /><br> <br>
  		EntryTime: <input type="text" name="entryTime" value="${visitor.entryTime}" /><br> <br>
  		ExitTime: <input type="text" name="exitTime" value="${visitor.exitTime}" /><br> <br>
  		

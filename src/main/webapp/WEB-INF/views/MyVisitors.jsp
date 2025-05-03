@@ -63,9 +63,9 @@
 												<th>Purpose</th>
 												<th>allowed</th>
 												<th>visitorName</th>
-												<th>mobileNo</th>
+												<th>Email</th>
 												<th>profilePhoto</th>
-												<th>Date</th>
+											
 												<th>entryTime</th>
 												<th>exitTime</th>
 												<th>Action</th>
@@ -82,13 +82,13 @@
 													<td>${v[5]}</td>
 													<td><img alt="photo" src="${v[6]}"
 														style="hight: 50px; width: 50px;"></td>
-													<td>${v[7]}</td>
 													<td>${v[3]}</td>
 													<td>${v[4]}</td>
+													
 
-													<td><a href="edituservisitor?visitorId=${v[8]}">Edit</a> |<a
-														href="deleteuservisitor?visitorId=${v[8]}">Delete</a>| <a
-														href="viewuservisitor?visitorId=${v[8]}">View</a></td>
+													<td><a href="edituservisitor?visitorId=${v[7]}">Edit</a> |<a
+														href="deleteuservisitor?visitorId=${v[7]}">Delete</a>| <a
+														href="viewuservisitor?visitorId=${v[7]}">View</a></td>
 												</tr>
 											</c:forEach>
 										</tbody>
